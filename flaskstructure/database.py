@@ -51,7 +51,7 @@ def addRisk(imageFileName, location, riskType, userPosted, userId):
         "imageFileName": str(imageFileName),
         "location": str(location),
         "flagged": str("false"),
-        "timeUploaded" : str(dateUploaded)
+        "timeUploaded" : str(dateUploaded),
         "riskType" : str(riskType),
         "userPosted" : str(userPosted),
         "userName" : str(userId),
