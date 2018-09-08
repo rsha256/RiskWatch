@@ -44,8 +44,6 @@ library.add(
   faCheckSquare
 );
 
-// var Modal = ReactBootstrap.Modal;
-
 class App extends Component {
   constructor(props) {
     super(props);
