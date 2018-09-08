@@ -10,16 +10,19 @@ collection = db.imageCollection
 #returns a array of the images, each one is a dictonary
 def getImages():
 
-    for post in collection.posts.find():
-        print(post["imageFileName"])
-        print(post["location"])
+    counter = 0
+    returnValue = None
 
-    return collection
+    for post in collection.posts.find():
+        returnValue[counter] = post
+        counter = counter + 1
+
+    return returnValue
 
 # find the image location format
 
 
-def addImage(imageFileName, location):
+def addImage(imageFileName, location, riskType):
 
     if collection == None:
         print("[DatabaseManager] Database was not set up right yet")
@@ -31,6 +34,7 @@ def addImage(imageFileName, location):
     post = {
         "imageFileName": str(imageFileName),
         "location": str(location),
+        "riskType" : str(riskType),
         "flagged": "false"
     }
 
