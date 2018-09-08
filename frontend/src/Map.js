@@ -11,33 +11,32 @@ export class MapContainer extends Component {
     this.risks = JSON.parse(xhttp.responseText);
   }
 
-  render() {
-    return (
-      <Map google={this.props.google} zoom={14}>
-        {this.risks.map(risk => {
-          const riskLocation = risk.location.split(",");
-          const latitude = riskLocation[0];
-          const longitude = riskLocation[1];
-          return (
-            <Marker
-              onClick={this.onMarkerClick}
-              name={"Current location"}
-              position={{ lat: latitude, lng: longitude }}
-              icon={{
-                url: "black-pin.png",
-                scaledSize: new google.maps.Size(40, 40)
-              }}
-            />
-          );
-        })}
-        <InfoWindow onClose={this.onInfoWindowClose}>
-          <div>
-            <h1>Hello World</h1>
-          </div>
-        </InfoWindow>
-      </Map>
-    );
-  }
+    render() {
+        return (
+            <Map google={this.props.google} zoom={14}>
+                {this.risks.map((risk) => {
+                    const riskLocation = risk.location.split(',');
+                    const latitude = riskLocation[0];
+                    const longitude = riskLocation[1];
+                    return (<Marker 
+                        onClick={this.onMarkerClick} 
+                        name={"Current location"} 
+                        position={{lat: latitude, lng: longitude}} 
+                        icon={{
+                            url: "black-pin.png",
+                            scaledSize: new google.maps.Size(40, 40)
+                        }}
+                        key={risk.id}
+                    />);
+                })}
+                <InfoWindow onClose={this.onInfoWindowClose}>
+                <div>
+                    <h1>Hello World</h1>
+                </div>
+                </InfoWindow>
+            </Map>
+        );
+    }
 }
 
 export default GoogleApiWrapper({
