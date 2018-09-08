@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
 import logo from './logo.gif';
 import './App.css';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem  } from 'reactstrap';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faCoffee,
@@ -25,12 +36,30 @@ library.add(
   faCheckSquare
 )
 
+// var Modal = ReactBootstrap.Modal;
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false
+    };
+    
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
+
   render() {
     return (
       <div className="App">
       {/* APP STARTS HERE */}
 
+      <Navbar>
       <div className="container">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -40,34 +69,26 @@ class App extends Component {
           </h1>
 
 
+
         <div>
-          <button type="button" className="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+          <button color="success" className="btn btn-success" onClick={this.toggle}>
             <FontAwesomeIcon icon={"cloud-upload-alt"} />
             Upload Image
           </button>
 
           {/* <MODAL> */}
-
-          <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div className="modal-dialog" role="document">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div className="modal-body">
-                  ...
-                </div>
-                <div className="modal-footer">
-                  <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" className="btn btn-primary">Save changes</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
+          
+          <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+            <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+            <ModalBody>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </ModalBody>
+            <ModalFooter>
+              <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
+              <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+            </ModalFooter>
+          </Modal>
+          
           {/* </MODAL> */}
 
         </div>
