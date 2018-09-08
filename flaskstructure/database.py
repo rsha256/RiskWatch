@@ -91,7 +91,7 @@ def findAllData(location):
 
     return post
 
-
+#find and flag a file
 def flagRisk(imageFileName):
 
     posts = collection.posts
