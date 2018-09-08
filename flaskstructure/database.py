@@ -1,5 +1,5 @@
 import pymongo
-import datatime
+import datetime
 
 client = None
 db = None
@@ -13,7 +13,22 @@ def getDatabase():
 
     collection = db.imageCollection;
 
+#returns a array of the images, each one is a dictonary
 def getImages():
+
+    imageList = None
+    counter = 0
+
+
+    posts = collection.posts
+    for post in posts.find():
+        imageList[counter] = post
+        counter = counter + 1
+    
+    print("[DatabaseManager]" + str(counter) + " things returned")
+
+    return imageList
+    
 
 #find the image location format
 
