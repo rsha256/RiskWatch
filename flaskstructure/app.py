@@ -32,6 +32,7 @@ def addRisk():
     filename = str(datetime.datetime.now().year) + '-' + str(datetime.datetime.now().month) + '-' + str(datetime.datetime.now().day) + '-' + str(
         datetime.datetime.now().hour) + '-' + str(datetime.datetime.now().minute) + '-' + str(datetime.datetime.now().second) + '-' + str(datetime.datetime.now().microsecond)
     image.save('/var/www/images/' + filename)
+    return redirect('/')
     # database.addRisk(filename, data['location'], data['risktype'])
 
 
