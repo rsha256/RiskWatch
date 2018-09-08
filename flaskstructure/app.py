@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, redirect
 from flaskstructure import database
 import json
 import datetime
@@ -15,9 +15,11 @@ def getImages():
 
 @app.route('/api/addrisk', methods=['POST'])
 def addRisk():
-    data = request.data
-
-    database.addRisk('/var/www/images' + str(datetime.time.microsecond), data['location'], data['risktype'])
+    image = request.files['image']
+    filename = str(datetime.datetime.now().year + datetime.datetime.now().month + datetime.datetime.now().day + datetime.datetime.now().hour + datetime.datetime.now().minute + datetime.datetime.now().microsecond )
+    image.save(filename)
+    return(redirect('http://localhost:3000'))
+    # database.addRisk(filename, data['location'], data['risktype'])
     
 
 if __name__ == "__main__":
