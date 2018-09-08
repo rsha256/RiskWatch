@@ -26,6 +26,7 @@ export class MapContainer extends Component {
                             url: "black-pin.png",
                             scaledSize: new google.maps.Size(40, 40)
                         }}
+                        key={risk.id}
                     />);
                 })}
                 <InfoWindow onClose={this.onInfoWindowClose}>

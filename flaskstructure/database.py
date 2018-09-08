@@ -28,7 +28,7 @@ def getRisksBasicInfo():
         value = {
             "riskType" : post["riskType"],
             "location" : post["location"],
-            "_id" : post["_id"]
+            "id" : str(post["_id"])
         }
         returnValue.append(value)
     
