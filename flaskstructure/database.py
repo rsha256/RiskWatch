@@ -8,11 +8,19 @@ db = client.imageDatabase
 collection = db.imageCollection
 
 #returns a array of the images, each one is a dictonary
-def getImages():
-    return collection
+def getRisks():
+
+    counter = 0
+    returnValue = [] 
+
+    for post in collection.posts.find():
+        returnValue.append(post)
+        counter += 1
+
+    return returnValue
 
 # find the image location format
-def addImage(imageFileName, location):
+def addRisk(imageFileName, location, riskType):
 
     if collection == None:
         print("[DatabaseManager] Database was not set up right yet")
@@ -24,6 +32,7 @@ def addImage(imageFileName, location):
     post = {
         "imageFileName": str(imageFileName),
         "location": str(location),
+        "riskType" : str(riskType),
         "flagged": "false"
     }
 
@@ -49,3 +58,7 @@ def flagImage(imageId):
 
 def count():
     return collection.posts.count
+
+#getImages()
+
+#print("End")
