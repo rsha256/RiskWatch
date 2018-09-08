@@ -72,7 +72,6 @@ class App extends Component {
               &nbsp; RiskWatch
             </NavbarBrand>
             <button 
-              color="success"
               className="btn btn-success capsule-border"
               onClick={this.toggle}
             >
@@ -95,8 +94,8 @@ class App extends Component {
               encType="multipart/form-data"
               id="upload-form"
             >
-              <input type="file" name="image" id="img-input-field" />
-              <label htmlFor="img-input-field" className="btn btn-outline-info">Select an Image</label>
+              <input type="file" name="image" id="img-input-field" className="btn btn-success" />
+              <label htmlFor="img-input-field" className="">Select an Image</label>
 
               <br />
               <br />

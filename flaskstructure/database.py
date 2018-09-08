@@ -1,6 +1,6 @@
 from pymongo import MongoClient
 import datetime
-import object_recognition
+from flaskstructure import object_recognition
 
 client = MongoClient("184.73.76.65", 27017)
 
