@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.gif';
 import './App.css';
-import './colors.css';
 import { Button, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter, Collapse, NavbarToggler, NavbarBrand, Nav, Navbar, NavItem, NavLink } from 'reactstrap';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
@@ -117,7 +116,7 @@ class App extends Component {
                 <FormGroup check>
                   <Label check>
                     <Input type="radio" name="ranking" />{' '}
-                    <span className="yellow-text">Low threat;</span> unlikely to harm anyone
+                    <span className="amber-text">Low threat;</span> unlikely to harm anyone
                   </Label>
                 </FormGroup>
                 <FormGroup check>
@@ -129,7 +128,7 @@ class App extends Component {
                 <FormGroup check disabled>
                   <Label check>
                     <Input type="radio" name="ranking" />{' '}
-                    <span className="red-text">High threat;</span> not 911-important enough but still pretty important
+                    <span className="amber-text text-darken-4">High threat;</span> not 911-important enough but still pretty important
                   </Label>
                 </FormGroup>
             </FormGroup>
