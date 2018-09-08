@@ -17,6 +17,7 @@ def getLabels(imageFileName):
     )
 
     print(response)
+    return response
 
 
 if __name__ == "__main__":
