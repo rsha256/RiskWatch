@@ -128,30 +128,36 @@ class App extends Component {
                 <FormGroup check disabled>
                   <Label check>
                     <Input type="radio" name="ranking" />{' '}
-                    <span class="red-text">High threat;</span> not 911-important enough but still pretty important
+                    <span className="red-text">High threat;</span> not 911-important enough but still pretty important
                   </Label>
                 </FormGroup>
             </FormGroup>
               <br />
-              <FormGroup>
-                  <Label check>
-                    <Input type="radio" name="hazardtype" value="fire"></Input>{' '}
-                    <span className="orange-text">Fire Hazard </span> - Encompassing everything from common household burns to all-consuming 
-                        bonfires.
-                  </Label>
-                  <Label check>
-                    <Input type="radio" name="hazardtype" value="water"></Input>{' '}
-                    <span className="orange-text">Water Hazard</span> - Encompassing flooding and tidal waves.
-                  </Label>
-                  <Label check>
-                    <Input type="radio" name="hazardtype" value="osha"></Input>{' '}
-                    <span className="orange-text">OSHA Violations</span> - Workplace-related safety hazards
-                  </Label>
-                  <Label check>
-                    <Input type="radio" name="hazardtype" value="electrical"></Input>{' '}
-                    <span className="orange-text">Electrical Hazards</span> - Fallen power lines
-                  </Label>
-              </FormGroup>
+            <FormGroup check>
+                <Label check>
+                  <Input type="radio" name="hazardtype" value="fire"></Input>{' '}
+                  <span className="orange-text">Fire Hazard </span> - Encompassing everything from common household burns to all-consuming 
+                      bonfires.
+                </Label>
+            </FormGroup>
+            <FormGroup check>
+                <Label check>
+                  <Input type="radio" name="hazardtype" value="water"></Input>{' '}
+                  <span className="orange-text">Water Hazard</span> - Encompassing flooding and tidal waves.
+                </Label>
+            </FormGroup>
+            <FormGroup check>
+                <Label check>
+                  <Input type="radio" name="hazardtype" value="osha"></Input>{' '}
+                  <span className="orange-text">OSHA Violations</span> - Workplace-related safety hazards
+                </Label>
+            </FormGroup>
+            <FormGroup check>
+                <Label check>
+                  <Input type="radio" name="hazardtype" value="electrical"></Input>{' '}
+                  <span className="orange-text">Electrical Hazards</span> - Fallen power lines
+                </Label>
+            </FormGroup>
 
               </form>
             </ModalBody>
