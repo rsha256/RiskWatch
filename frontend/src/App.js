@@ -59,7 +59,7 @@ class App extends Component {
       {/* APP STARTS HERE */}
 
       {/* <NAVBAR> */}
-      <div>
+      <div className="nav-color">
         <Navbar color="faded" light>
           <NavbarBrand href="/" className="mr-auto">FireWatch</NavbarBrand>
           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
