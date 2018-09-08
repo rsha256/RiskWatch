@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.gif';
 import './App.css';
-import { Button, Form, FormGroup, Label, Input, FormText, Modal, ModalHeader, ModalBody, ModalFooter, Collapse, NavbarToggler, NavbarBrand, Nav, Navbar, NavItem, NavLink } from 'reactstrap';
+import './colors.css';
+import { Button, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter, Collapse, NavbarToggler, NavbarBrand, Nav, Navbar, NavItem, NavLink } from 'reactstrap';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faCoffee,
