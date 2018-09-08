@@ -77,7 +77,8 @@ def findRisk(location):
         "location" : str(location),
         "riskType" : str(post["risktype"]),
         "flagged" : str(post["flagged"]),
-        "tags" : str(post["tags"])
+        "tags" : str(post["tags"]),
+        "timeUploaded" : str(post["timeUploaded"])
     }
 
     return data
