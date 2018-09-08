@@ -27,7 +27,8 @@ def getRisksBasicInfo():
     for post in collection.posts.find():
         value = {
             "riskType" : post["riskType"],
-            "location" : post["location"]
+            "location" : post["location"],
+            "_id" : post["_id"]
         }
         returnValue.append(value)
     
@@ -78,7 +79,8 @@ def findRisk(location):
         "riskType" : str(post["risktype"]),
         "flagged" : str(post["flagged"]),
         "tags" : str(post["tags"]),
-        "timeUploaded" : str(post["timeUploaded"])
+        "timeUploaded" : str(post["timeUploaded"]),
+        "_id" : post["_id"]
     }
 
     return data
@@ -114,6 +116,3 @@ def flagRisk(imageFileName):
 def count():
     return collection.posts.count
 
-#addRisk("example.png", "39.948287,-75.195367", "homicide", "None", "No")
-
-#print("End")
