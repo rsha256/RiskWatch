@@ -24,7 +24,7 @@ def findRisk():
 
 @app.route('/api/getrisks', methods=['GET'])
 def getImages():
-    return str(database.getRisks())
+    return str(database.getRisksBasicInfo())
 
 @app.route('/api/addrisk', methods=['POST'])
 def addRisk():

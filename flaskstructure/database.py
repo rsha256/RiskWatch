@@ -74,7 +74,8 @@ def findRisk(location):
         "imageFileName" : str(post["imageFileName"]),
         "location" : str(location),
         "riskType" : str(post["risktype"]),
-        "flagged" : str(post["flagged"])
+        "flagged" : str(post["flagged"]),
+        "tags" : str(post["tags"])
     }
 
 #finds ALL data about a certain image, is NOT safe for clientside
@@ -88,6 +89,8 @@ def findAllData(location):
     if post == None:
         print("[DataBaseManager] No post found with location " + location)
 
+    return post
+
 
 def flagRisk(imageFileName):
 
@@ -98,7 +101,7 @@ def flagRisk(imageFileName):
         print("[DatebaseManager] Image was not found")
         return
 
-    #collection.update_one({'_id': i}, {"flagged": "true"}, upsert=False)
+    collection.update_one({"imageFileName" : imageFileName}, {"flagged": "true"}, upsert=False)
 
     print("[DatabaseManager] Flagged image ")
 
