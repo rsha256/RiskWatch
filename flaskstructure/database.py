@@ -40,12 +40,12 @@ def addRisk(imageFileName, location, riskType, userPosted, userId):
         print("[DatabaseManager] Fix this ^ Rahual")
         return
 
-    dateUploaded = datetime.date
+    dateUploaded = datetime.datetime.now().date()
 
     if userPosted == None:
         userId = "None"
 
-    tags =  object_recognition.getLabels(imageFileName)
+    tags = object_recognition.getLabels(imageFileName)
 
     post = {
         "imageFileName": str(imageFileName),
