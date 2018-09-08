@@ -2,7 +2,7 @@ from pymongo import MongoClient
 import datetime
 import object_recognition
 
-client = MongoClient("184.73.76.65", 27017);
+client = MongoClient("184.73.76.65", 27017)
 
 db = client.imageDatabase
 
@@ -40,7 +40,7 @@ def addRisk(imageFileName, location, riskType, userPosted, userId):
         print("[DatabaseManager] Fix this ^ Rahual")
         return
 
-    dataUploaded = datetime.date
+    dateUploaded = datetime.date
 
     if userPosted == None:
         userId = "None"
@@ -51,6 +51,7 @@ def addRisk(imageFileName, location, riskType, userPosted, userId):
         "imageFileName": str(imageFileName),
         "location": str(location),
         "flagged": str("false"),
+        "timeUploaded" : str(dateUploaded)
         "riskType" : str(riskType),
         "userPosted" : str(userPosted),
         "userName" : str(userId),
@@ -59,6 +60,7 @@ def addRisk(imageFileName, location, riskType, userPosted, userId):
 
     posts = collection.posts
     post_id = posts.insert_one(post).inserted_id
+    #Is ununsued as have no use, but want to store the id
 
     print("[DatabaseManager] Thing added")
 
@@ -77,6 +79,8 @@ def findRisk(location):
         "flagged" : str(post["flagged"]),
         "tags" : str(post["tags"])
     }
+
+    return data
 
 #finds ALL data about a certain image, is NOT safe for clientside
 def findAllData(location):
