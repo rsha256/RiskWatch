@@ -9,6 +9,11 @@ collection = db.imageCollection
 
 #returns a array of the images, each one is a dictonary
 def getImages():
+
+    for post in collection.posts.find():
+        print(post["imageFileName"])
+        print(post["location"])
+
     return collection
 
 # find the image location format
@@ -51,3 +56,7 @@ def flagImage(imageId):
 
 def count():
     return collection.posts.count
+
+#getImages()
+
+#print("End")
