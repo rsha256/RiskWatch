@@ -2,14 +2,16 @@ import os
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-from flask import Flask, request, redirect, render_template
+from flask import Flask, request, redirect, render_template, json
+from flask_cors import CORS
+
 from flaskstructure import database 
 
-import json
 import datetime
 import imghdr
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/')
@@ -24,7 +26,7 @@ def findRisk():
 
 @app.route('/api/getrisks', methods=['GET'])
 def getImages():
-    return str(database.getRisksBasicInfo())
+    return json.dumps(database.getRisksBasicInfo())
 
 @app.route('/api/addrisk', methods=['POST'])
 def addRisk():
