@@ -50,7 +50,8 @@ class App extends Component {
 
     this.state = {
       modal: false,
-      collapsed: true
+      collapsed: true,
+      imageURL: "Select an Image"
     };
 
     this.toggle = this.toggle.bind(this);
@@ -94,15 +95,18 @@ class App extends Component {
               encType="multipart/form-data"
               id="upload-form"
             >
-              <input
-                type="file"
-                name="image"
-                id="img-input-field"
-                className="btn btn-success"
-              />
-              <label htmlFor="img-input-field" className="">
-                Select an Image
-              </label>
+              <input 
+                type="file" 
+                name="image" 
+                id="img-input-field" 
+                onChange={
+                    (event) => {
+                        const urlSegments = event.target.value.split('\\');
+                        const imageURL = urlSegments[urlSegments.length - 1];
+                        this.setState({imageURL: imageURL})} 
+                    }
+                className="btn btn-success-outline" />
+              <label htmlFor="img-input-field" className="btn btn-outline-success capsule-border">{this.state.imageURL}</label>
 
               <br />
               <br />
