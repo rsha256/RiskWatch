@@ -18,14 +18,14 @@
   background-color: bisque;
 }
 
-input[type="file"] {
+/* input[type="file"] {
     width: 0.01px;
     height: 0.01px;
     opacity: 0;
     overflow: hidden;
     position: absolute;
-    z-index: -1;
-}
+    z-index: -1; 
+}  */
 
 .capsule-border {
     border-radius: 5em !important;
