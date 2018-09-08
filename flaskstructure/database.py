@@ -15,6 +15,7 @@ def getDatabase():
     collection = db.imageCollection
 
 
+#returns a array of the images, each one is a dictonary
 def getImages():
     pass
 
