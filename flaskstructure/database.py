@@ -1,5 +1,6 @@
 from pymongo import MongoClient
 import datetime
+import object_recognition
 
 client = MongoClient("184.73.76.65", 27017);
 
@@ -7,7 +8,7 @@ db = client.imageDatabase
 
 collection = db.imageCollection
 
-#returns a array of the images, each one is a dictonary, is SAFE for client side
+#returns a array of the images, each one is a dictonary, is NOT safe for client side
 def getRisks():
 
     counter = 0
@@ -19,7 +20,7 @@ def getRisks():
 
     return returnValue
 
-#returns an array of the posts, each one is a dictonay, however only the nessary client info is included, is NOT safe
+#returns an array of the posts, each one is a dictonay, however only the nessary client info is included, IS safe
 def getRisksBasicInfo():
     
     returnValue = []
@@ -44,13 +45,16 @@ def addRisk(imageFileName, location, riskType, userPosted, userId):
     if userPosted == None:
         userId = "None"
 
+    tags =  object_recognition.getLabels(imageFileName)
+
     post = {
         "imageFileName": str(imageFileName),
         "location": str(location),
         "flagged": str("false"),
         "riskType" : str(riskType),
         "userPosted" : str(userPosted),
-        "userName" : str(userId)
+        "userName" : str(userId),
+        "tags" : str(tags)
     }
 
     posts = collection.posts
@@ -64,16 +68,14 @@ def findRisk(location):
     post = posts.find_one({"location" : location})
 
     if post == None:
-        return ("No post found for location " + location)
+        print("[DataBaseManager] No post found with location " + location)
 
     data = {
         "imageFileName" : str(post["imageFileName"]),
         "location" : str(location),
-        "riskType" : str(["postriskType"]),
+        "riskType" : str(post["risktype"]),
         "flagged" : str(post["flagged"])
     }
-
-    return data
 
 #finds ALL data about a certain image, is NOT safe for clientside
 def findAllData(location):
