@@ -3,22 +3,22 @@ import logo from "./logo.gif";
 import "./App.css";
 import {
   Button,
-  Form,
+  // Form,
   FormGroup,
   Label,
   Input,
-  FormText,
+  // FormText,
   Modal,
   ModalHeader,
   ModalBody,
   ModalFooter,
-  Collapse,
-  NavbarToggler,
+  // Collapse,
+  // NavbarToggler,
   NavbarBrand,
-  Nav,
+  // Nav,
   Navbar,
-  NavItem,
-  NavLink
+  // NavItem,
+  // NavLink
 } from "reactstrap";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -131,7 +131,7 @@ class App extends Component {
                 <FormGroup check>
                   <Label check>
                     <Input type="radio" name="ranking" />{" "}
-                    <span class="red-text">High threat;</span> not 911-important
+                    <span className="red-text">High threat;</span> not 911-important
                     enough, but still pretty important
                   </Label>
                 </FormGroup>
