@@ -89,7 +89,7 @@ class App extends Component {
         <div>
           <button color="success" className="btn btn-success" onClick={this.toggle}>
             <FontAwesomeIcon icon={"cloud-upload-alt"} />
-            &nbsp;&nbsp;Upload Image
+            &nbsp;&nbsp;Add Risk
           </button>
 
           {/* <MODAL> */}
@@ -97,15 +97,14 @@ class App extends Component {
           <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
             <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
             <ModalBody>
-              <form action="" method="post" enctype="multipart/form-data">
-              Select image to upload:
-                <input type="file" name="fileToUpload" id="fileToUpload" />
+              <form action="http://localhost:5000/api/addrisk" method="post" enctype="multipart/form-data">
+              Select an image
+                <input type="file" name="image" />
                 <input type="submit" value="Upload Image" name="submit" />
               </form>
             </ModalBody>
             <ModalFooter>
-              <Button color="primary" onClick={this.toggle}>Browse</Button>{' '}
-              <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+              <Button color="primary" onClick={this.toggle}>Cancel</Button>
             </ModalFooter>
           </Modal>
           
