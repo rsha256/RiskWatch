@@ -3,10 +3,14 @@
 # Emacs
 .projectile
 ~*
+
 # Visual Studio Code
 .vscode/
 
-## Each user should create their OWN virtual of these
+# Webstorm
+.idea/
+
+## Each user should create their OWN one of these
 venv/
 node_modules/
 
