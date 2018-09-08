@@ -25,7 +25,7 @@ def getRisksBasicInfo():
     returnValue = []
     for post in collection.posts.find():
         value = {
-            "riskType" : post["riskType"]
+            "riskType" : post["riskType"],
             "location" : post["location"]
         }
         returnValue.append(value)
@@ -47,8 +47,8 @@ def addRisk(imageFileName, location, riskType, userPosted, userId):
     post = {
         "imageFileName": str(imageFileName),
         "location": str(location),
+        "flagged": str("false"),
         "riskType" : str(riskType),
-        "flagged": "false"
         "userPosted" : str(userPosted),
         "userName" : str(userId)
     }
@@ -67,10 +67,10 @@ def findRisk(location):
         print("[DataBaseManager] No post found with location " + location)
 
     data = {
-        imageFileName : str(post[imageFileName])
-        location : str(location)
-        riskType : str([postriskType])
-        flagged : str(post[flagged])
+        "imageFileName" : str(post[imageFileName]),
+        "location" : str(location),
+        "riskType" : str([postriskType]),
+        "flagged" : str(post[flagged])
     }
 
 #finds ALL data about a certain image, is NOT safe for clientside
@@ -81,7 +81,7 @@ def findAllData(location):
         "location" : location
     })
 
-     if post == None:
+    if post == None:
         print("[DataBaseManager] No post found with location " + location)
 
 
@@ -102,6 +102,6 @@ def flagRisk(imageFileName):
 def count():
     return collection.posts.count
 
-#getImages()
+addRisk("example.png", "39.948287,-75.195367", "homicide", "None", "No")
 
 #print("End")
