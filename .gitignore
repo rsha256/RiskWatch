@@ -1,3 +1,16 @@
+## Editors
+
+# Emacs
 .projectile
-venv/
+~*
+
+# Visual Studio Code
 .vscode/
+
+# Webstorm
+.idea/
+
+## Each user should create their OWN one of these
+venv/
+node_modules/
+
