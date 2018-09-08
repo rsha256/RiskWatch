@@ -42,10 +42,6 @@ def getRisksBasicInfo():
 
 
 def addRisk(imageFileName, location, riskType, userPosted, userId):
-    if collection == None:
-        print("[DatabaseManager] Database was not set up right yet")
-        print("[DatabaseManager] Fix this ^ Rahual")
-        return
 
     dateUploaded = datetime.datetime.now().date()
 
