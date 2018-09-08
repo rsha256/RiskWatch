@@ -6,7 +6,5 @@ app = Flask(__name__)
 def home():
     return "Welcome to FireWatch!"
 
-@app.route('/')
-
 if __name__ == "__main__":
     app.run()
