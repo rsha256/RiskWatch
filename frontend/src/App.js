@@ -72,7 +72,7 @@ class App extends Component {
               <img src={logo} className="App-logo" alt="logo" />
               &nbsp; RiskWatch
             </NavbarBrand>
-            <button 
+            <button
               className="btn btn-success capsule-border"
               onClick={this.toggle}
             >
@@ -90,7 +90,7 @@ class App extends Component {
           <ModalHeader toggle={this.toggle}>Report Something!</ModalHeader>
           <ModalBody>
             <form
-              action="http://localhost:5000/api/addrisk"
+              action="http://184.73.76.65:5000/api/addrisk"
               method="post"
               encType="multipart/form-data"
               id="upload-form"
@@ -125,14 +125,14 @@ class App extends Component {
                   <Label check>
                     <Input type="radio" name="ranking" />{" "}
                     <span className="orange-text">Medium threat;</span> a threat
-                    that may develop into a high threat near in the future
+                    that may develop into a high threat in the near future
                   </Label>
                 </FormGroup>
                 <FormGroup check>
                   <Label check>
                     <Input type="radio" name="ranking" />{" "}
                     <span class="red-text">High threat;</span> not 911-important
-                    enough but still pretty important
+                    enough, but still pretty important
                   </Label>
                 </FormGroup>
               </FormGroup>
@@ -142,8 +142,8 @@ class App extends Component {
                   <Label check>
                     <Input type="radio" name="hazardtype" value="fire" />{" "}
                     <span className="orange-text">Fire Hazard </span> -
-                    Encompassing everything from common household burns to
-                    all-consuming bonfires.
+                    Everything from common household burns to all-consuming
+                    bonfires.
                   </Label>
                 </FormGroup>
                 <FormGroup check>
