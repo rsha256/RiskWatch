@@ -64,7 +64,7 @@ def findRisk(location):
     post = posts.find_one({"location" : location})
 
     if post == None:
-        print("[DataBaseManager] No post found with location " + location)
+        return ("No post found for location " + location)
 
     data = {
         "imageFileName" : str(post["imageFileName"]),
@@ -72,6 +72,8 @@ def findRisk(location):
         "riskType" : str(["postriskType"]),
         "flagged" : str(post["flagged"])
     }
+
+    return data
 
 #finds ALL data about a certain image, is NOT safe for clientside
 def findAllData(location):
