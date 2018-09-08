@@ -26,7 +26,11 @@ library.add(
   faCheckSquare
 );
 
-// var Modal = ReactBootstrap.Modal;
+function toast() {
+  var x = document.getElementById("snackbar");
+  x.className = "show";
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
 
 class App extends Component {
   constructor(props) {
@@ -162,7 +166,8 @@ class App extends Component {
               </form>
             </ModalBody>
             <ModalFooter>
-              <Button color="primary" form="upload-form" type="submit">Submit</Button>
+              <Button color="primary" onClick={toast} form="upload-form" type="submit">Submit</Button>
+              <div id="snackbar">Your Upload was Completed Successfully!</div>
               <Button color="secondary" onClick={this.toggle}>Cancel</Button>
             </ModalFooter>
           </Modal>
