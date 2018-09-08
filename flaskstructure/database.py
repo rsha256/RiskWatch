@@ -1,16 +1,15 @@
 from pymongo import MongoClient
 import datetime
 
-client = MongoClient();
+client = MongoClient("184.73.76.65", 27017);
 
 db = client.imageDatabase
 
 collection = db.imageCollection
 
-
 #returns a array of the images, each one is a dictonary
 def getImages():
-    return db.
+    return collection
 
 # find the image location format
 
