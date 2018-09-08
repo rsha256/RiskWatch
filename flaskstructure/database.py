@@ -12,8 +12,6 @@ def getImages():
     return collection
 
 # find the image location format
-
-
 def addImage(imageFileName, location):
 
     if collection == None:
