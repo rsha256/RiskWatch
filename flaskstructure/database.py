@@ -8,7 +8,7 @@ collection = None
 
 def getDatabase():
 
-    client = MongoClient();
+    client = MongoClient("184.73.76.65", 27017);
 
     db = client.imageDatabase
 
