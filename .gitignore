@@ -10,7 +10,17 @@
 # Webstorm
 .idea/
 
+
 ## Each user should create their OWN one of these
 venv/
 node_modules/
+
+
+## Output Files
+*.pyc
+/[0-9]*
+
+
+## Auto-Generated OS files
+.DS_Store
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.gif';
 import './App.css';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Collapse, NavbarToggler, NavbarBrand, Nav, Navbar, NavItem, NavLink } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, FormText, Modal, ModalHeader, ModalBody, ModalFooter, Collapse, NavbarToggler, NavbarBrand, Nav, Navbar, NavItem, NavLink } from 'reactstrap';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faCoffee,
@@ -24,7 +24,7 @@ library.add(
   faQuoteLeft,
   faSquare,
   faCheckSquare
-)
+);
 
 // var Modal = ReactBootstrap.Modal;
 
@@ -95,16 +95,58 @@ class App extends Component {
           {/* <MODAL> */}
           
           <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-            <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+            <ModalHeader toggle={this.toggle}>Report Something!</ModalHeader>
             <ModalBody>
-              <form action="http://localhost:5000/api/addrisk" method="post" enctype="multipart/form-data">
-              Select an image
-                <input type="file" name="image" />
-                <input type="submit" value="Upload Image" name="submit" />
+              <form action="http://localhost:5000/api/addrisk" method="post" encType="multipart/form-data" id="upload-form">
+              <h3>Select an image:</h3>
+                <input type="file" name="image" id="img-input-field" />
+                <label htmlFor="img-input-field"/>
+
+                {/* <label for="low">Low</label>
+                <input type="radio" name="ranking" id="low" value="low" /><br />
+                <label for="medium">Medium</label>
+                <input type="radio" name="ranking" id="medium" value="medium" /><br />
+                <label for="high">High</label>
+                <input type="radio" name="ranking" id="high" value="high" /><br /><br />   */}
+
+                <br /><br /><br />
+
+                <FormGroup tag="fieldset">
+                <legend>Rank the danger:</legend>
+                <FormGroup check>
+                  <Label check>
+                    <Input type="radio" name="ranking" />{' '}
+                    <span className="yellow-text">Low threat;</span> unlikely to harm anyone
+                  </Label>
+                </FormGroup>
+                <FormGroup check>
+                  <Label check>
+                    <Input type="radio" name="ranking" />{' '}
+                    <span className="orange-text">Medium threat;</span> a threat that may develop into a high threat near in the future
+                  </Label>
+                </FormGroup>
+                <FormGroup check disabled>
+                  <Label check>
+                    <Input type="radio" name="ranking" />{' '}
+                    <span class="red-text">High threat;</span> not 911-important enough but still pretty important
+                  </Label>
+                </FormGroup>
+              </FormGroup>
+
+              <br />
+
+              <FormGroup check>
+                <Label check>
+                  <Input type="checkbox" checked   />{' '}
+                  By creating a post, you agree to our <a>Terms of Service and Privacy Policy</a>
+                </Label>
+              </FormGroup>
+
               </form>
             </ModalBody>
             <ModalFooter>
-              <Button color="primary" onClick={this.toggle}>Cancel</Button>
+              <Button color="primary" form="upload-form" type="submit">Submit</Button>
+              <Button color="secondary" onClick={this.toggle}>Cancel</Button>
             </ModalFooter>
           </Modal>
           
