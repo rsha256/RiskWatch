@@ -73,9 +73,9 @@ class App extends Component {
               <img src={logo} className="App-logo" alt="logo" />
               &nbsp; RiskWatch
             </NavbarBrand>
-            <button
+            <button 
               color="success"
-              className="btn btn-success"
+              className="btn btn-success capsule-border"
               onClick={this.toggle}
             >
               <FontAwesomeIcon icon={"cloud-upload-alt"} />
@@ -97,9 +97,8 @@ class App extends Component {
               encType="multipart/form-data"
               id="upload-form"
             >
-              <h3>Select an image:</h3>
               <input type="file" name="image" id="img-input-field" />
-              <label htmlFor="img-input-field" />
+              <label htmlFor="img-input-field" className="btn btn-outline-info">Select an Image</label>
 
               <br />
               <br />
