@@ -1,4 +1,4 @@
-import pymongo
+from pymongo import MongoClient
 import datetime
 
 client = None
@@ -28,7 +28,7 @@ def addImage(imageFileName, location):
         print("[DatabaseManager] Fix this ^ Rahual")
         return
 
-    dataUploaded = datatime.date
+    dataUploaded = datetime.date
 
     post = {
         "imageFileName": str(imageFileName),
@@ -44,10 +44,10 @@ def addImage(imageFileName, location):
 
 def flagImage(imageId):
 
-    posts = collection.posts
-    image = posts.find_one("_id" : imageId)
+    posts = collection.poss
+    image = posts.find_one({"_id" : imageId})
 
-    if(image == None):
+    if image == None:
         print("[DatebaseManager] Image was not found")
         return
 
