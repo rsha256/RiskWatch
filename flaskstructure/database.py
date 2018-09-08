@@ -5,17 +5,21 @@ client = None
 db = None
 collection = None
 
+
 def getDatabase():
 
     client = MongoClient()
 
-    db = client.imageDatabase;
+    db = client.imageDatabase
 
-    collection = db.imageCollection;
+    collection = db.imageCollection
+
 
 def getImages():
+    pass
 
-#find the image location format
+# find the image location format
+
 
 def addImage(imageFileName, location):
 
@@ -27,9 +31,9 @@ def addImage(imageFileName, location):
     dataUploaded = datatime.date
 
     post = {
-        "imageFileName" : str(imageFileName),
-        "location" : str(location),
-        "flagged" : "false"
+        "imageFileName": str(imageFileName),
+        "location": str(location),
+        "flagged": "false"
     }
 
     posts = collection.posts
@@ -41,17 +45,16 @@ def addImage(imageFileName, location):
 def flagImage(imageId):
 
     posts = collection.posts
-    image = posts.find_one("_id" : imageId)
+    image = posts.find_one("_id": imageId)
 
     if(image == None):
         print("[DatebaseManager] Image was not found")
         return
 
-    collection.update_one({'_id': imageId }, {"flagged": "true" }, upsert=False)
+    collection.update_one({'_id': imageId}, {"flagged": "true"}, upsert=False)
 
     print("[DatabaseManager] Flagged image ")
 
 
 def count():
     return collection.posts.count
-
