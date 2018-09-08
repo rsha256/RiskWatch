@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import logo from './logo.gif';
 import './App.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCloudscale } from '@fortawesome/free-brands-svg-icons'
 import {
   faCoffee,
   faCog,
@@ -33,21 +32,23 @@ class App extends Component {
       {/* APP STARTS HERE */}
 
       <div className="container">
-        <header className="App-header">
+        <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           
           <h1 className="App-title">
             Welcome to FireWatch! 
           </h1>
-        </header>
-        
+
+
         <div>
-          <button className="btn btn-success info">
+          <button type="button" className="btn btn-success">
             <FontAwesomeIcon icon={"cloud-upload-alt"} />
             Upload Image
           </button>
         </div>
 
+        </div>
+        
         <p className="App-footer">
           FireWatch was made by a group of broke high school students. &copy; 2018
         </p>
