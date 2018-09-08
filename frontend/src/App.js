@@ -131,15 +131,26 @@ class App extends Component {
                     <span class="red-text">High threat;</span> not 911-important enough but still pretty important
                   </Label>
                 </FormGroup>
-              </FormGroup>
-
+            </FormGroup>
               <br />
-
-              <FormGroup check>
-                <Label check>
-                  <Input type="checkbox" checked   />{' '}
-                  By creating a post, you agree to our <a>Terms of Service and Privacy Policy</a>
-                </Label>
+              <FormGroup>
+                  <Label check>
+                    <Input type="radio" name="hazardtype" value="fire"></Input>{' '}
+                    <span className="orange-text">Fire Hazard </span> - Encompassing everything from common household burns to all-consuming 
+                        bonfires.
+                  </Label>
+                  <Label check>
+                    <Input type="radio" name="hazardtype" value="water"></Input>{' '}
+                    <span className="orange-text">Water Hazard</span> - Encompassing flooding and tidal waves.
+                  </Label>
+                  <Label check>
+                    <Input type="radio" name="hazardtype" value="osha"></Input>{' '}
+                    <span className="orange-text">OSHA Violations</span> - Workplace-related safety hazards
+                  </Label>
+                  <Label check>
+                    <Input type="radio" name="hazardtype" value="electrical"></Input>{' '}
+                    <span className="orange-text">Electrical Hazards</span> - Fallen power lines
+                  </Label>
               </FormGroup>
 
               </form>
