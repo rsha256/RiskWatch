@@ -1,4 +1,4 @@
-import pymango
+import pymongo
 import datatime
 
 client = None
