@@ -41,7 +41,7 @@ def getRisksBasicInfo():
 # adds a post to the database
 
 
-def addRisk(imageFileName, location, riskType, userPosted, userId):
+def addRisk(imageFileName, location, riskType:
 
     dateUploaded = datetime.datetime.now().date()
 
@@ -57,8 +57,6 @@ def addRisk(imageFileName, location, riskType, userPosted, userId):
         "flagged": str("false"),
         "timeUploaded": str(dateUploaded),
         "riskType": str(riskType),
-        "userPosted": str(userPosted),
-        "userName": str(userId),
         "tags": str(tags)
     }
 
