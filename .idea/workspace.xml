@@ -15,6 +15,7 @@
     <session id="1063625836">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -26,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="13" column="14" selection-start-line="3" selection-start-column="61" selection-end-line="13" selection-end-column="15" />
+            <state relative-caret-position="124">
+              <caret line="4" column="14" selection-start-line="3" selection-start-column="61" selection-end-line="3" selection-end-column="70" />
             </state>
           </provider>
         </entry>
@@ -1449,33 +1450,11 @@
       <path value="$PROJECT_DIR$/frontend/node_modules/yargs/node_modules/string-width/package.json" />
       <path value="$PROJECT_DIR$/frontend/node_modules/yargs/package.json" />
       <path value="$PROJECT_DIR$/frontend/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/@babel/runtime-corejs2/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/classnames/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/core-js/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/dom-helpers/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/invariant/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/js-tokens/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/keycode/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/loose-envify/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/object-assign/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/prop-types-extra/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/prop-types/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/react-bootstrap/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/react-dom/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/react-is/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/react-lifecycles-compat/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/react-overlays/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/react-prop-types/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/react-transition-group/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/react/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/regenerator-runtime/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/schedule/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/uncontrollable/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/warning/package.json" />
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
+    <option name="x" value="71" />
+    <option name="y" value="159" />
     <option name="width" value="1440" />
     <option name="height" value="878" />
   </component>
@@ -1535,6 +1514,9 @@
       </list>
     </option>
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="36954893-a020-4e87-bf0c-a29a0d5c5fbc" name="Default Changelist" comment="" />
@@ -1542,16 +1524,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1536386944426</updated>
-      <workItem from="1536386945887" duration="255000" />
+      <workItem from="1536386945887" duration="458000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="255000" />
+    <option name="totallyTimeSpent" value="458000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="878" extended-state="0" />
-    <editor active="true" />
+    <frame x="71" y="159" width="1440" height="878" extended-state="0" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
@@ -1575,14 +1556,17 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/frontend/public/index.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="13" column="14" selection-start-line="3" selection-start-column="61" selection-end-line="13" selection-end-column="15" />
+        <state relative-caret-position="124">
+          <caret line="4" column="14" selection-start-line="3" selection-start-column="61" selection-end-line="3" selection-end-column="70" />
         </state>
       </provider>
     </entry>
