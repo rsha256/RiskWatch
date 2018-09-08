@@ -45,10 +45,6 @@ def addRisk(imageFileName, location, riskType:
 
     dateUploaded = datetime.datetime.now().date()
 
-    if userPosted == None:
-        userPosted = "No user"
-        userId = "No user id"
-
     tags = object_recognition.getLabels(imageFileName)
 
     post = {
