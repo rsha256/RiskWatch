@@ -1,30 +1,23 @@
 from pymongo import MongoClient
 import datetime
 
-client = None
-db = None
-collection = None
+client = MongoClient();
 
+db = client.imageDatabase
 
-def getDatabase():
-
-    client = MongoClient();
-
-    db = client.imageDatabase
-
-    collection = db.imageCollection
+collection = db.imageCollection
 
 
 #returns a array of the images, each one is a dictonary
 def getImages():
-    pass
+    return db.
 
 # find the image location format
 
 
 def addImage(imageFileName, location):
 
-    if(collection == None):
+    if collection == None:
         print("[DatabaseManager] Database was not set up right yet")
         print("[DatabaseManager] Fix this ^ Rahual")
         return
