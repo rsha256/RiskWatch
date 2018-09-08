@@ -10,7 +10,7 @@
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.gif">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.png">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <!--
@@ -22,14 +22,13 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-  <title>FireWatch | Home</title>
+  <title>RiskWatch | Home</title>
 </head>
 
 <body>
   <noscript>
     You need to enable JavaScript to run this app.
   </noscript>
-  <div id="map"></div>
   <div id="root"></div>
   <!--
       This HTML file is a template.
@@ -41,22 +40,12 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-</body>
-<script>
-  function initMap() {
-    var uluru = { lat: -25.344, lng: 131.036 };
-    var map = new google.maps.Map(
-      document.getElementById('map'), { zoom: 4, center: uluru });
-    var marker = new google.maps.Marker({ position: uluru, map: map });
-  }
-</script>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-  crossorigin="anonymous"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react-bootstrap/0.32.4/react-bootstrap.min.js" integrity="sha256-67lC9fUR3RLV1Rt3Q0wS5mJxrdur+diYKYYHknRhrDM="
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react-bootstrap/0.32.4/react-bootstrap.min.js" integrity="sha256-67lC9fUR3RLV1Rt3Q0wS5mJxrdur+diYKYYHknRhrDM="
   crossorigin="anonymous"></script> -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaPrjle3PHIeszmO4Bn7XlYHgrF1pTDzw&callback=initMap"
-  async defer></script>
+</body>
 
 </html>
