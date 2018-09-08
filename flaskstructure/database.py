@@ -1,5 +1,5 @@
 import pymongo
-import datatime
+import datetime
 
 client = None
 db = None
@@ -8,7 +8,7 @@ collection = None
 
 def getDatabase():
 
-    client = MongoClient()
+    client = MongoClient();
 
     db = client.imageDatabase
 
@@ -45,7 +45,7 @@ def addImage(imageFileName, location):
 def flagImage(imageId):
 
     posts = collection.posts
-    image = posts.find_one("_id": imageId)
+    image = posts.find_one("_id" : imageId)
 
     if(image == None):
         print("[DatebaseManager] Image was not found")
