@@ -1,5 +1,6 @@
 import os
 import sys
+import random
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from flask import Flask, request, redirect, render_template, json
@@ -38,11 +39,11 @@ def addRisk():
 
     # 39.9578174,-75.195382
 
-    location = str(random.random() + 39.9578174) + "," + \
-        str(random.random() + -75.195382)
+    location = str(random.random() / 6 + 39.9578174) + "," + \
+        str(random.random() / 6 + -75.195382)
 
     database.addRisk(filename, location, hazardtype)
-    return redirect("http://184.73.76.65")
+    return redirect("http://rskwatcher.com")
 
 
 @app.route('/api/reversecoords', methods=['GET'])
