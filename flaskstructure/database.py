@@ -41,7 +41,7 @@ def getRisksBasicInfo():
 # adds a post to the database
 
 
-def addRisk(imageFileName, location, riskType:
+def addRisk(imageFileName, location, riskType):
 
     dateUploaded = datetime.datetime.now().date()
 
