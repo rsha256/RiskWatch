@@ -71,7 +71,7 @@ export class MapContainer extends Component {
               }}
               key={risk.id}
               imageUrl={"/images/" + risk.imageFileName}
-              placeAddress={this.getPlaceAddress(latitude, longitude)}
+              // placeAddress={this.getPlaceAddress(latitude, longitude)}
             />
           );
         })}
