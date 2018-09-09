@@ -30,9 +30,9 @@ def getRisksBasicInfo():
     returnValue = []
     for post in collection.posts.find():
         value = {
-            "riskType" : post["riskType"],
-            "location" : post["location"],
-            "id" : str(post["_id"])
+            "riskType": post["riskType"],
+            "location": post["location"],
+            "id": str(post["_id"])
         }
         returnValue.append(value)
 
