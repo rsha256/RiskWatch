@@ -73,11 +73,10 @@ class App extends Component {
       imageURL: "Select an Image"
     };
 
-    this.locate = this.locate.bind(this);
     this.toggle = this.toggle.bind(this);
   }
 
-  locate() {
+  locate = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         var geolocation = {
@@ -223,14 +222,14 @@ class App extends Component {
                     Fallen power lines
                   </Label>
                 </FormGroup>
-                <FormGroup check>
-                  <Label check>
+                <FormGroup>
+                  <Label>
                     <Input type="text" name="latitude" value={this.state.latitude} />{" "}
                     <span className="">Latitude</span> -
                   </Label>
                 </FormGroup>
-                <FormGroup check>
-                  <Label check>
+                <FormGroup>
+                  <Label>
                     <Input type="text" name="longitude" value={this.state.longitude} />{" "}
                     <span className="">Longitude</span> -
                   </Label>
