@@ -13,12 +13,6 @@ import imghdr
 app = Flask(__name__)
 CORS(app)
 
-
-@app.route('/')
-def home():
-    return render_template('index.html')
-
-
 @app.route('/api/findRisk', methods=['GET'])
 def findRisk():
     data = json.loads(request.data)
@@ -38,7 +32,7 @@ def addRisk():
         datetime.datetime.now().hour) + '-' + str(datetime.datetime.now().minute) + '-' + str(datetime.datetime.now().second) + '-' + str(datetime.datetime.now().microsecond)
     image.save('/var/www/html/images/' + filename)
     database.addRisk(filename, "192,192", hazardtype)
-    return redirect('/')
+    return redirect("http://184.73.76.65")
 
 
 @app.route('/api/flagimage', methods=['POST'])
