@@ -55,11 +55,6 @@ function toast() {
   }, 3000);
 }
 
-function initialize() {
-  var input = document.getElementById("searchTextField");
-  new google.maps.places.Autocomplete(input);
-}
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -156,20 +151,6 @@ class App extends Component {
                 {this.state.imageURL}
               </label>
               <br />
-              <Button color="primary" onClick={this.locate}>
-                &nbsp;&nbsp;Find me
-              </Button>
-              {console.log(this.state.longitude + "," + this.state.latitude)}
-              <FormGroup check>
-                <Label check>
-                  Location:
-                  <Input
-                    type="text"
-                    name="location"
-                    id="autocomplete searchTextField"
-                  />
-                </Label>
-              </FormGroup>
               <FormGroup tag="fieldset">
                 <legend>Rank the danger:</legend>
                 <FormGroup check>
@@ -223,26 +204,6 @@ class App extends Component {
                     <Input type="radio" name="hazardtype" value="electrical" />{" "}
                     <span className="orange-text">Electrical Hazards</span> -
                     Fallen power lines
-                  </Label>
-                </FormGroup>
-                <FormGroup>
-                  <Label>
-                    <Input
-                      type="text"
-                      name="latitude"
-                      value={this.state.latitude}
-                    />{" "}
-                    <span className="">Latitude</span> -
-                  </Label>
-                </FormGroup>
-                <FormGroup>
-                  <Label>
-                    <Input
-                      type="text"
-                      name="longitude"
-                      value={this.state.longitude}
-                    />{" "}
-                    <span className="">Longitude</span> -
                   </Label>
                 </FormGroup>
               </FormGroup>
