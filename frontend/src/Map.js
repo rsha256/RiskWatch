@@ -3,8 +3,8 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 
 const google = window.google;
 export class MapContainer extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     var xhttp = new XMLHttpRequest();
     xhttp.open("GET", "http://localhost:5000/api/getrisks", false);
     xhttp.send();
