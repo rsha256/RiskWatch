@@ -7,11 +7,15 @@ from flask_cors import CORS
 
 from flaskstructure import database, geocacher
 
+import boto3
+client = boto3.client('sns')
+
 import datetime
 import imghdr
 
 app = Flask(__name__)
 CORS(app)
+
 
 @app.route('/api/findRisk', methods=['GET'])
 def findRisk():
