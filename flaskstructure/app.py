@@ -33,13 +33,16 @@ def getImages():
 @app.route('/api/addrisk', methods=['POST'])
 def addRisk():
     image = request.files['image']
-    hazardtype = request.form.get("hazardtype")
+    hazardtype = request.form   .get("hazardtype")
     filename = str(datetime.datetime.now().year) + '-' + str(datetime.datetime.now().month) + '-' + str(datetime.datetime.now().day) + '-' + str(
         datetime.datetime.now().hour) + '-' + str(datetime.datetime.now().minute) + '-' + str(datetime.datetime.now().second) + '-' + str(datetime.datetime.now().microsecond)
     image.save('/var/www/html/images/' + filename)
-    database.addRisk(filename, "192,192", hazardtype)
-    return redirect('http://184.73.76.65/')
+       database.addRisk(filename, "192,192", hazardtype)
+    return redirect(url_for('/'))
 
+@app.route('/api/flagimage', methods=['POST'])
+def flagImage():
+    return #implement this endpoint to use database flagger
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
