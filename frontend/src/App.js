@@ -16,7 +16,7 @@ import {
   // NavbarToggler,
   NavbarBrand,
   // Nav,
-  Navbar,
+  Navbar
   // NavItem,
   // NavLink
 } from "reactstrap";
@@ -47,7 +47,9 @@ library.add(
 function toast() {
   var x = document.getElementById("snackbar");
   x.className = "show";
-  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  setTimeout(function() {
+    x.className = x.className.replace("show", "");
+  }, 3000);
 }
 
 class App extends Component {
@@ -101,18 +103,23 @@ class App extends Component {
               encType="multipart/form-data"
               id="upload-form"
             >
-              <input 
-                type="file" 
-                name="image" 
-                id="img-input-field" 
-                onChange={
-                    (event) => {
-                        const urlSegments = event.target.value.split('\\');
-                        const imageURL = urlSegments[urlSegments.length - 1];
-                        this.setState({imageURL: imageURL})} 
-                    }
-                className="btn btn-success-outline" />
-              <label htmlFor="img-input-field" className="btn btn-outline-success capsule-border">{this.state.imageURL}</label>
+              <input
+                type="file"
+                name="image"
+                id="img-input-field"
+                onChange={event => {
+                  const urlSegments = event.target.value.split("\\");
+                  const imageURL = urlSegments[urlSegments.length - 1];
+                  this.setState({ imageURL: imageURL });
+                }}
+                className="btn btn-success-outline"
+              />
+              <label
+                htmlFor="img-input-field"
+                className="btn btn-outline-success capsule-border"
+              >
+                {this.state.imageURL}
+              </label>
 
               <br />
               <br />
@@ -123,7 +130,7 @@ class App extends Component {
                 <FormGroup check>
                   <Label check>
                     <Input type="radio" name="ranking" />{" "}
-                    <span className="yellow-text">Low threat;</span> unlikely to
+                    <span className="orange-text">Low threat;</span> unlikely to
                     harm anyone
                   </Label>
                 </FormGroup>
@@ -137,8 +144,8 @@ class App extends Component {
                 <FormGroup check>
                   <Label check>
                     <Input type="radio" name="ranking" />{" "}
-                    <span className="red-text">High threat;</span> not 911-important
-                    enough, but still pretty important
+                    <span className="orange-text">High threat;</span> not
+                    911-important enough, but still pretty important
                   </Label>
                 </FormGroup>
               </FormGroup>
@@ -177,7 +184,12 @@ class App extends Component {
             </form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={toast} form="upload-form" type="submit">
+            <Button
+              color="primary"
+              onClick={toast}
+              form="upload-form"
+              type="submit"
+            >
               Submit
             </Button>
             <div id="snackbar">Your Upload was Completed Successfully!</div>
