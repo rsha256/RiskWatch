@@ -28,15 +28,17 @@ def getImages():
 def addRisk():
     image = request.files['image']
     hazardtype = request.form.get("hazardtype")
+    location = request.form.get("location")
     filename = str(datetime.datetime.now().year) + '-' + str(datetime.datetime.now().month) + '-' + str(datetime.datetime.now().day) + '-' + str(
         datetime.datetime.now().hour) + '-' + str(datetime.datetime.now().minute) + '-' + str(datetime.datetime.now().second) + '-' + str(datetime.datetime.now().microsecond)
     image.save('/var/www/html/images/' + filename)
-    database.addRisk(filename, "192,192", hazardtype)
+    database.addRisk(filename, location, hazardtype)
     return redirect("http://184.73.76.65")
 
 
 @app.route('/api/reversecoords', methods=['GET'])
 def getReverseCoords():
+    print(request.data)
     data = json.loads(request.data)
     lat = data['lat']
     lng = data['lng']
