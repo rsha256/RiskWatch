@@ -150,7 +150,7 @@ class App extends Component {
               <Button color="primary" onClick={this.locate}>
                 &nbsp;&nbsp;Find me
               </Button>
-              console.log(this.state.longitude + "," + this.state.latitude);
+              zzconsole.log(this.state.longitude + "," + this.state.latitude);
               {/*}  
               <FormGroup check>
                 <Label check>
