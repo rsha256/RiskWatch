@@ -90,7 +90,7 @@ class App extends Component {
           <ModalHeader toggle={this.toggle}>Report Something!</ModalHeader>
           <ModalBody>
             <form
-              action="http://localhost:5000/api/addrisk"
+              action="http://184.73.76.65:5000/api/addrisk"
               method="post"
               encType="multipart/form-data"
               id="upload-form"
