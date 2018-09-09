@@ -55,6 +55,11 @@ function toast() {
   }, 3000);
 }
 
+function initialize() {
+  var input = document.getElementById("searchTextField");
+  new google.maps.places.Autocomplete(input);
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -68,17 +73,21 @@ class App extends Component {
       imageURL: "Select an Image"
     };
 
-    this.locate = this.locate.bind(this);
     this.toggle = this.toggle.bind(this);
   }
 
-  locate() {
+  locate = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         var geolocation = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
+
+        this.setState({
+          longitude: geolocation.lng,
+          latitude: geolocation.lat
+        });
 
         var circle = new google.maps.Circle({
           center: geolocation,
@@ -87,7 +96,7 @@ class App extends Component {
         autocomplete.setBounds(circle.getBounds());
       });
     }
-  }
+  };
 
   toggle() {
     this.setState({
@@ -150,15 +159,17 @@ class App extends Component {
               <Button color="primary" onClick={this.locate}>
                 &nbsp;&nbsp;Find me
               </Button>
-              zzconsole.log(this.state.longitude + "," + this.state.latitude);
-              {/*}  
+              {console.log(this.state.longitude + "," + this.state.latitude)}
               <FormGroup check>
                 <Label check>
                   Location:
-                  <Input type="text" name="location" id="autocomplete" onChange="">
+                  <Input
+                    type="text"
+                    name="location"
+                    id="autocomplete searchTextField"
+                  />
                 </Label>
-              
-              </FormGroup>*/}
+              </FormGroup>
               <FormGroup tag="fieldset">
                 <legend>Rank the danger:</legend>
                 <FormGroup check>
@@ -212,6 +223,26 @@ class App extends Component {
                     <Input type="radio" name="hazardtype" value="electrical" />{" "}
                     <span className="orange-text">Electrical Hazards</span> -
                     Fallen power lines
+                  </Label>
+                </FormGroup>
+                <FormGroup>
+                  <Label>
+                    <Input
+                      type="text"
+                      name="latitude"
+                      value={this.state.latitude}
+                    />{" "}
+                    <span className="">Latitude</span> -
+                  </Label>
+                </FormGroup>
+                <FormGroup>
+                  <Label>
+                    <Input
+                      type="text"
+                      name="longitude"
+                      value={this.state.longitude}
+                    />{" "}
+                    <span className="">Longitude</span> -
                   </Label>
                 </FormGroup>
               </FormGroup>
