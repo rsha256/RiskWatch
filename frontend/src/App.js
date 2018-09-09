@@ -87,6 +87,11 @@ class App extends Component {
         autocomplete.setBounds(circle.getBounds());
       });
     }
+
+    this.setState({
+      longitude = geolocation.lng,
+      latitude = geolocation.lat
+    })
   }
 
   toggle() {
