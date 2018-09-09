@@ -151,14 +151,12 @@ class App extends Component {
                 &nbsp;&nbsp;Find me
               </Button>
               console.log(this.state.longitude + "," + this.state.latitude);
-              {/*}  
               <FormGroup check>
                 <Label check>
                   Location:
-                  <Input type="text" name="location" id="autocomplete" onChange="">
+                  <Input type="text" name="location" id="autocomplete" onChange="" />
                 </Label>
-              
-              </FormGroup>*/}
+              </FormGroup>
               <FormGroup tag="fieldset">
                 <legend>Rank the danger:</legend>
                 <FormGroup check>
