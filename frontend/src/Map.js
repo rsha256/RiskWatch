@@ -7,6 +7,7 @@ export class MapContainer extends Component {
     super(props);
     var xhttp = new XMLHttpRequest();
     xhttp.open("GET", "http://184.73.76.65:5000/api/getrisks", false);
+
     xhttp.send();
     this.risks = JSON.parse(xhttp.responseText);
     console.log(this.risks);
@@ -44,15 +45,15 @@ export class MapContainer extends Component {
               break;
 
             case "water":
-              iconUrl = "watericon";
+              iconUrl = "icons/watericon";
               break;
 
             case "electrical":
-              iconUrl = "electricalicon";
+              iconUrl = "icons/electricalicon";
               break;
 
             case "osha":
-              iconUrl = "oshaicon";
+              iconUrl = "icons/oshaicon";
               break;
           }
 
@@ -69,7 +70,7 @@ export class MapContainer extends Component {
                 scaledSize: new google.maps.Size(35, 35)
               }}
               key={risk.id}
-              imageUrl={"/images/" + risk.imageFileName}
+              imageUrl={"/var/www/html/images/" + risk.imageFileName}
             />
           );
         })}
