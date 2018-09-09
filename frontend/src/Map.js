@@ -43,7 +43,7 @@ export class MapContainer extends Component {
                         name={"Current location"} 
                         position={{lat: latitude, lng: longitude}} 
                         icon={{
-                            url: "black-pin.png",
+                            url: iconUrl,
                             scaledSize: new google.maps.Size(40, 40)
                         }}
                         key={risk.id}
