@@ -39,8 +39,8 @@ def addRisk():
 
     # 39.9578174,-75.195382
 
-    location = str(random.random() / 6 + 39.9578174) + "," + \
-        str(random.random() / 6 + -75.195382)
+    location = str(random.random() / 10 + 39.9578174) + "," + \
+        str(random.random() / 10 + -75.195382)
 
     database.addRisk(filename, location, hazardtype)
     return redirect("http://rskwatch.com")
