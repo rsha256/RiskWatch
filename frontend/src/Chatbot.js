@@ -10,6 +10,16 @@ import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import "./Chatbot.css"
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faComment
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Icon from "@material-ui/core/Icon/Icon";
+
+library.add(
+  faComment
+);
 
 const styles = theme => ({
   button: {
@@ -24,8 +34,8 @@ function FloatingActionButtons(props) {
   const {classes} = props;
   return (
     <div>
-      <Button variant="fab" color="primary" aria-label="Add" className={classes.button}>
-        <AddIcon />
+      <Button variant="fab" color="primary" aria-label="Edit" className={classes.button}>
+        <Icon>edit_icon</Icon>
       </Button>
     </div>
   );
