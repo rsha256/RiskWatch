@@ -29,16 +29,9 @@ export class MapContainer extends Component {
 
   getPlaceAddress(lat, lng) {
     var xhttp = new XMLHttpRequest();
-<<<<<<< HEAD
-    xhttp.open('GET', '/api/reversecoords', false);
-    xhttp.send({'lat': lat, 'lng': lng});
+    xhttp.open("GET", "/api/reversecoords", false);
+    xhttp.send({ lat: lat, lng: lng });
     return xhttp.responseText();
-=======
-    xhttp.open('GET', 'http://184.73.76.65:5000/api/reversecoords', false);
-    xhttp.send({'lat': lat, 'lng': lng});
-    console.log(xhttp.responseText);
-    return xhttp.responseText;
->>>>>>> c237ee6760de517a8c37e2417542904bb85a5a84
   }
 
   render() {
@@ -93,11 +86,9 @@ export class MapContainer extends Component {
           onClose={this.onInfoWindowClose}
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
-        >   
-            <h1>{this.state.markerData.placeAddress}</h1>
-            <img
-                src={this.state.markerData.imageUrl}
-            />
+        >
+          <h1>{this.state.markerData.placeAddress}</h1>
+          <img src={this.state.markerData.imageUrl} />
         </InfoWindow>
       </Map>
     );
