@@ -5,7 +5,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from flask import Flask, request, redirect, render_template, json
 from flask_cors import CORS
 
-from flaskstructure import database
+from flaskstructure import database, geocacher
 
 import datetime
 import imghdr
@@ -27,13 +27,20 @@ def getImages():
 @app.route('/api/addrisk', methods=['POST'])
 def addRisk():
     image = request.files['image']
-    hazardtype = request.form   .get("hazardtype")
+    hazardtype = request.form.get("hazardtype")
     filename = str(datetime.datetime.now().year) + '-' + str(datetime.datetime.now().month) + '-' + str(datetime.datetime.now().day) + '-' + str(
         datetime.datetime.now().hour) + '-' + str(datetime.datetime.now().minute) + '-' + str(datetime.datetime.now().second) + '-' + str(datetime.datetime.now().microsecond)
     image.save('/var/www/html/images/' + filename)
     database.addRisk(filename, "192,192", hazardtype)
     return redirect("http://184.73.76.65")
 
+
+@app.route('/api/reversecoords', methods=['GET'])
+def getReverseCoords():
+    data = json.loads(request.data)
+    lat = data['lat']
+    lng = data['lng']
+    return geocacher.reverseCoords(lat, lng)
 
 @app.route('/api/flagimage', methods=['POST'])
 def flagImage():
