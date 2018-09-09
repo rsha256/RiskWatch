@@ -32,11 +32,15 @@ def getImages():
 def addRisk():
     image = request.files['image']
     hazardtype = request.form.get("hazardtype")
-    location = request.form.get("location")
     filename = str(datetime.datetime.now().year) + '-' + str(datetime.datetime.now().month) + '-' + str(datetime.datetime.now().day) + '-' + str(
         datetime.datetime.now().hour) + '-' + str(datetime.datetime.now().minute) + '-' + str(datetime.datetime.now().second) + '-' + str(datetime.datetime.now().microsecond)
     image.save('/var/www/html/images/' + filename)
-    database.addRisk(filename, location, hazardtype)
+
+    #39.9578174,-75.195382
+
+    location = str(random.random() + 39.9578174) + "," + str(random.random() + -75.195382) 
+
+    database.addRisk(filename, location , hazardtype)
     return redirect("https://184.73.76.65")
 
 
