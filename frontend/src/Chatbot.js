@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import "./Chatbot.css";
 import {
-  Button,
+  // Button,
   // Form,
   FormGroup,
   Label,
@@ -22,64 +22,72 @@ import {
 import * as ReactDOM from "react-dom";
 import {render} from "react-dom";
 import {Overlay} from "react-bootstrap";
+import PropTypes from 'prop-types';
+import {withStyles} from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
 
-function CustomPopover({className, style}) {
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit,
+  },
+  extendedIcon: {
+    marginRight: theme.spacing.unit,
+  },
+});
+
+function FloatingActionButtons(props) {
+  const {classes} = props;
   return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        position: 'absolute',
-        backgroundColor: '#EEE',
-        boxShadow: '0 5px 10px rgba(0, 0, 0, 0.2)',
-        border: '1px solid #CCC',
-        borderRadius: 3,
-        marginLeft: -5,
-        marginTop: 5,
-        padding: 10
-      }}
-    >
-      <p style={{opacity: "1"}}><strong>Holy guacamole!</strong> Check this info.</p>
+    <div>
+      <Button variant="fab" color="primary" aria-label="Add" className={classes.button}>
+        <AddIcon />
+      </Button>
     </div>
   );
 }
 
+FloatingActionButtons.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
 class Chatbot extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-
-    this.handleToggle = this.handleToggle.bind(this);
-
+  constructor(props) {
+    super(props);
     this.state = {
-      show: true
+      modal: false
     };
+
+    this.toggle = this.toggle.bind(this);
   }
 
-  handleToggle() {
-    this.setState({show: !this.state.show});
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
   }
 
   render() {
     return (
-      <div style={{height: 100, position: 'relative'}}>
-        <Button
-          ref={button => {
-            this.target = button;
-          }}
-          onClick={this.handleToggle}
-        >
-          I am an Overlay target
+      <div>
+        <Button style={{backgroundColor: "red", color: "white", marginLeft: "95vw", marginTop: "80vh"}} aria-label="Add" variant="fab"
+                onClick={this.toggle}>
+          <AddIcon />
         </Button>
-
-        <Overlay
-          show={this.state.show}
-          onHide={() => this.setState({show: false})}
-          placement="bottom"
-          container={this}
-          target={() => ReactDOM.findDOMNode(this.target)}
-        >
-          <CustomPopover />
-        </Overlay>
+        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+          <ModalBody>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
+          </ModalBody>
+          <ModalFooter>
+            <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
+            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+          </ModalFooter>
+        </Modal>
       </div>
     );
   }
