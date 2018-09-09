@@ -36,10 +36,11 @@ def addRisk():
     filename = str(datetime.datetime.now().year) + '-' + str(datetime.datetime.now().month) + '-' + str(datetime.datetime.now().day) + '-' + str(
         datetime.datetime.now().hour) + '-' + str(datetime.datetime.now().minute) + '-' + str(datetime.datetime.now().second) + '-' + str(datetime.datetime.now().microsecond)
     image.save('/var/www/html/images/' + filename)
-    database.addRisk(filename, "192,192", hazardtype)
+    database.addRisk(filename, "39.9578174,-75.195382", hazardtype)
     client.publish(
         PhoneNumber='16092166076',
-        Message='hello world',
+        Message='[RiskWatch Alert]
+        Rahul L. has posted a new alert.',
         MessageAttributes={
             'string': {
                 'DataType': 'string'
