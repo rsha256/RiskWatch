@@ -27,6 +27,13 @@ export class MapContainer extends Component {
     console.log(this.state.markerData.imageUrl);
   };
 
+  getPlaceAddress(lat, lng) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open('GET', '/api/reversecoords', false);
+    xhttp.send({'lat': lat, 'lng': lng});
+    return xhttp.responseText();
+  }
+
   render() {
     return (
       <Map
@@ -71,6 +78,7 @@ export class MapContainer extends Component {
               }}
               key={risk.id}
               imageUrl={"/images/" + risk.imageFileName}
+              placeAddress={this.getPlaceAddress(latitude, longitude)}
             />
           );
         })}
@@ -79,7 +87,7 @@ export class MapContainer extends Component {
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
         >   
-            <h1>{this.state.markerData.placeName}</h1>
+            <h1>{this.state.markerData.placeAddress}</h1>
             <img
                 src={this.state.markerData.imageUrl}
             />
