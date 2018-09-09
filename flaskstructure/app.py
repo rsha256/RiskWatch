@@ -38,11 +38,13 @@ def addRisk():
         datetime.datetime.now().hour) + '-' + str(datetime.datetime.now().minute) + '-' + str(datetime.datetime.now().second) + '-' + str(datetime.datetime.now().microsecond)
     image.save('/var/www/html/images/' + filename)
     database.addRisk(filename, "192,192", hazardtype)
-    return redirect(url_for('/'))
+    return redirect('/')
+
 
 @app.route('/api/flagimage', methods=['POST'])
 def flagImage():
-    return #implement this endpoint to use database flagger
+    return  # implement this endpoint to use database flagger
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
