@@ -89,9 +89,9 @@ class App extends Component {
     }
 
     this.setState({
-      longitude = geolocation.lng,
-      latitude = geolocation.lat
-    })
+      longitude: geolocation.lng,
+      latitude: geolocation.lat
+    });
   }
 
   toggle() {
