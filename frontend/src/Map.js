@@ -69,7 +69,7 @@ export class MapContainer extends Component {
                 scaledSize: new google.maps.Size(35, 35)
               }}
               key={risk.id}
-              imageUrl={"/var/www/html/images/" + risk.imageFileName}
+              imageUrl={"/images/" + risk.imageFileName}
             />
           );
         })}
