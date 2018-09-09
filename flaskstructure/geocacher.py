@@ -14,7 +14,3 @@ def reverseCoords(lat,long):
     r = requests.get("https://maps.googleapis.com/maps/api/geocode/json", params = payload)
 
     return (r.json()["results"][0]["formatted_address"])
-
-
-
-reverseCoords("40.714224","-73.961452")
