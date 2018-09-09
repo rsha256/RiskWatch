@@ -4,6 +4,14 @@ body {
   font-family: sans-serif;
 }
 
+#chatbox {
+  z-index: -1;
+}
+
+.fade:not(.show) {
+  opacity: 1;
+}
+
 .amber {
   background-color: #ffc107 !important;
 }
