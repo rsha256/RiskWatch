@@ -43,7 +43,7 @@ def addRisk():
         str(random.random() / 6 + -75.195382)
 
     database.addRisk(filename, location, hazardtype)
-    return redirect("http://rskwatcher.com")
+    return redirect("http://rskwatch.com")
 
 
 @app.route('/api/reversecoords', methods=['GET'])
