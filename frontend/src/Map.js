@@ -19,19 +19,19 @@ export class MapContainer extends Component {
                     var iconUrl = null;
                     switch (risk.riskType) {
                         case 'fire':
-                        iconUrl = "fireicon";
+                        iconUrl = "icons/fireicon";
                         break;
 
                         case 'water':
-                        iconUrl = "watericon";
+                        iconUrl = "icons/watericon";
                         break;
 
                         case 'electrical':
-                        iconUrl = "electricalicon";
+                        iconUrl = "icons/electricalicon";
                         break;
 
                         case 'osha':
-                        iconUrl = "oshaicon";
+                        iconUrl = "icons/oshaicon";
                         break;
                     }
 
