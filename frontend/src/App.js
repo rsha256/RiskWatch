@@ -171,9 +171,10 @@ class App extends Component {
             </form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" form="upload-form" type="submit">
+            <Button color="primary" onClick={toast} form="upload-form" type="submit">
               Submit
             </Button>
+            <div id="snackbar">Your Upload was Completed Successfully!</div>
             <Button color="secondary" onClick={this.toggle}>
               Cancel
             </Button>
