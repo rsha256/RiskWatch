@@ -19,7 +19,8 @@ node_modules/
 ## Output Files
 *.pyc
 /[0-9]*
-
+*.map
+out/
 
 ## Auto-Generated OS files
 .DS_Store
