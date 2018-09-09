@@ -32,6 +32,10 @@ export class MapContainer extends Component {
             <Map 
                 google={this.props.google} 
                 zoom={14}
+                initialCenter={{
+                    lat: 39.9578174,
+                    lng: -75.195382
+                }}
                 >
                 {this.risks.map((risk) => {
                     var iconUrl = null;
@@ -40,16 +44,16 @@ export class MapContainer extends Component {
                         iconUrl = "icons/fireicon";
                         break;
 
-                        case 'water':
-                        iconUrl = "icons/watericon";
+                        case "water":
+                        iconUrl = "watericon";
                         break;
 
-                        case 'electrical':
-                        iconUrl = "icons/electricalicon";
+                        case "electrical":
+                        iconUrl = "electricalicon";
                         break;
 
-                        case 'osha':
-                        iconUrl = "icons/oshaicon";
+                        case "osha":
+                        iconUrl = "oshaicon";
                         break;
                     }
 
