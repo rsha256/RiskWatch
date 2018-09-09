@@ -74,7 +74,6 @@ class Chatbot extends React.Component {
           <ModalBody>
             <div className="chat">
               <div className="chat-title">
-                <h1>Rahul Shah</h1>
                 <h2>rshah2020</h2>
                 <div className="container">
                   <img width={"80px"} height={"80px"} src="https://avatars2.githubusercontent.com/u/28417128?s=460&v=4"
