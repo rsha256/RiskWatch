@@ -223,6 +223,18 @@ class App extends Component {
                     Fallen power lines
                   </Label>
                 </FormGroup>
+                <FormGroup check>
+                  <Label check>
+                    <Input type="text" name="latitude" value={this.state.latitude} />{" "}
+                    <span className="">Latitude</span> -
+                  </Label>
+                </FormGroup>
+                <FormGroup check>
+                  <Label check>
+                    <Input type="text" name="longitude" value={this.state.longitude} />{" "}
+                    <span className="">Longitude</span> -
+                  </Label>
+                </FormGroup>
               </FormGroup>
             </form>
           </ModalBody>
