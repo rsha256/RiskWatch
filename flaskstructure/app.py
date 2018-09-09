@@ -38,7 +38,7 @@ def addRisk():
         datetime.datetime.now().hour) + '-' + str(datetime.datetime.now().minute) + '-' + str(datetime.datetime.now().second) + '-' + str(datetime.datetime.now().microsecond)
     image.save('/var/www/html/images/' + filename)
     database.addRisk(filename, text['location'], text['risktype'])
-    return redirect('/')
+    return "Done"
 
 
 if __name__ == "__main__":
