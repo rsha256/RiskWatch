@@ -41,17 +41,9 @@ def getRisksBasicInfo():
 # adds a post to the database
 
 
-def addRisk(imageFileName, location, riskType, userPosted, userId):
-    if collection == None:
-        print("[DatabaseManager] Database was not set up right yet")
-        print("[DatabaseManager] Fix this ^ Rahual")
-        return
+def addRisk(imageFileName, location, riskType:
 
     dateUploaded = datetime.datetime.now().date()
-
-    if userPosted == None:
-        userPosted = "No user"
-        userId = "No user id"
 
     tags = object_recognition.getLabels(imageFileName)
 
@@ -61,8 +53,6 @@ def addRisk(imageFileName, location, riskType, userPosted, userId):
         "flagged": str("false"),
         "timeUploaded": str(dateUploaded),
         "riskType": str(riskType),
-        "userPosted": str(userPosted),
-        "userName": str(userId),
         "tags": str(tags)
     }
 
