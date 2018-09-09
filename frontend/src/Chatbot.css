@@ -68,7 +68,6 @@ body {
 
 /* The popup chat - NOT hidden by default */
 .chat-popup {
-  position: fixed;
   bottom: 0;
   right: 15px;
   border: 3px solid #f1f1f1;
