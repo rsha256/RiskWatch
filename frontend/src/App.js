@@ -55,6 +55,11 @@ function toast() {
   }, 3000);
 }
 
+function initialize() {
+  var input = document.getElementById('searchTextField');
+  new google.maps.places.Autocomplete(input);
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -155,15 +160,14 @@ class App extends Component {
               <Button color="primary" onClick={this.locate}>
                 &nbsp;&nbsp;Find me
               </Button>
-              {console.log(this.state.longitude + "," + this.state.latitude)}
-              {/*}  
+              console.log(this.state.longitude + "," + this.state.latitude);
               <FormGroup check>
                 <Label check>
                   Location:
-                  <Input type="text" name="location" id="" onChange="">
+                  <Input type="text" name="location" id="autocomplete searchTextField" />
+                  google.maps.event.addDomListener(window, 'load', initialize);
                 </Label>
-              
-              </FormGroup>*/}
+              </FormGroup>
               <FormGroup tag="fieldset">
                 <legend>Rank the danger:</legend>
                 <FormGroup check>
