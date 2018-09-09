@@ -159,7 +159,7 @@ class App extends Component {
               <Button color="primary" onClick={this.locate}>
                 &nbsp;&nbsp;Find me
               </Button>
-              console.log(this.state.longitude + "," + this.state.latitude);
+              {console.log(this.state.longitude + "," + this.state.latitude)}
               <FormGroup check>
                 <Label check>
                   Location:
@@ -168,7 +168,6 @@ class App extends Component {
                     name="location"
                     id="autocomplete searchTextField"
                   />
-                  google.maps.event.addDomListener(window, 'load', initialize);
                 </Label>
               </FormGroup>
               <FormGroup tag="fieldset">
