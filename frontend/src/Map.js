@@ -6,7 +6,7 @@ export class MapContainer extends Component {
   constructor(props) {
     super(props);
     var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "http://184.73.76.65:5000/api/getrisks", false);
+    xhttp.open("GET", "https://rskwatch.com:5000/api/getrisks", false);
 
     xhttp.send();
     this.risks = JSON.parse(xhttp.responseText);
