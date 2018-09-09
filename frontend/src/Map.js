@@ -14,7 +14,13 @@ export class MapContainer extends Component {
 
     render() {
         return (
-            <Map google={this.props.google} zoom={14}>
+            <Map 
+                google={this.props.google} 
+                zoom={14}
+                style={{
+                    backgroundColor: "black"
+                }}
+                >
                 {this.risks.map((risk) => {
                     var iconUrl = null;
                     switch (risk.riskType) {
