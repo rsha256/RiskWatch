@@ -38,7 +38,7 @@ def addRisk():
         datetime.datetime.now().hour) + '-' + str(datetime.datetime.now().minute) + '-' + str(datetime.datetime.now().second) + '-' + str(datetime.datetime.now().microsecond)
     image.save('/var/www/html/images/' + filename)
     database.addRisk(filename, "192,192", hazardtype)
-    return redirect(url_for('/'))
+    return redirect('http://184.73.76.65/')
 
 
 if __name__ == "__main__":
