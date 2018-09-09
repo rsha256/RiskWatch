@@ -71,14 +71,7 @@ export class MapContainer extends Component {
               }}
               key={risk.id}
               imageUrl={"/images/" + risk.imageFileName}
-              placeAddress={
-                  () => {
-                      var xhttp = new XMLHttpRequest();
-                      xhttp.open('GET', '/api/reversecoords', false);
-                      xhttp.send({'lat': latitude, 'lng': longitude});
-                      return xhttp.responseText();
-                  }
-              }
+              // placeAddress={this.getPlaceAddress(latitude, longitude)}
             />
           );
         })}
@@ -86,11 +79,9 @@ export class MapContainer extends Component {
           onClose={this.onInfoWindowClose}
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
-        >   
-            <h1>{this.state.markerData.placeAddress}</h1>
-            <img
-                src={this.state.markerData.imageUrl}
-            />
+        >
+          <h1>{this.state.markerData.placeAddress}</h1>
+          <img src={this.state.markerData.imageUrl} />
         </InfoWindow>
       </Map>
     );

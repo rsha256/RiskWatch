@@ -44,6 +44,9 @@ library.add(
   faCheckSquare
 );
 
+const google = window.google;
+var autocomplete;
+
 function toast() {
   var x = document.getElementById("snackbar");
   x.className = "show";
@@ -59,10 +62,31 @@ class App extends Component {
     this.state = {
       modal: false,
       collapsed: true,
+      longitude: 0,
+      latitude: 0,
+      location: "",
       imageURL: "Select an Image"
     };
 
+    this.locate = this.locate.bind(this);
     this.toggle = this.toggle.bind(this);
+  }
+
+  locate() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var geolocation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+        var circle = new google.maps.Circle({
+          center: geolocation,
+          radius: position.coords.accuracy
+        });
+        autocomplete.setBounds(circle.getBounds());
+      });
+    }
   }
 
   toggle() {
@@ -89,6 +113,8 @@ class App extends Component {
             </button>
           </Navbar>
         </div>
+
+        <div id="snackbar">Your upload was completed successfully!</div>
 
         <Modal
           isOpen={this.state.modal}
@@ -120,11 +146,19 @@ class App extends Component {
               >
                 {this.state.imageURL}
               </label>
-
               <br />
-              <br />
-              <br />
-
+              <Button color="primary" onClick={this.locate}>
+                &nbsp;&nbsp;Find me
+              </Button>
+              console.log(this.state.longitude + "," + this.state.latitude);
+              {/*}  
+              <FormGroup check>
+                <Label check>
+                  Location:
+                  <Input type="text" name="location" id="autocomplete" onChange="">
+                </Label>
+              
+              </FormGroup>*/}
               <FormGroup tag="fieldset">
                 <legend>Rank the danger:</legend>
                 <FormGroup check>
@@ -192,7 +226,7 @@ class App extends Component {
             >
               Submit
             </Button>
-            <div id="snackbar">Your Upload was Completed Successfully!</div>
+
             <Button color="secondary" onClick={this.toggle}>
               Cancel
             </Button>
