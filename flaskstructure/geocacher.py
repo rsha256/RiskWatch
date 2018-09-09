@@ -1,20 +1,26 @@
 import requests
 
+
 def getCoords(address):
 
-    payload = {"address" : address, "key" : "AIzaSyBaPrjle3PHIeszmO4Bn7XlYHgrF1pTDzw"}
+    payload = {"address": address,
+               "key": "AIzaSyBaPrjle3PHIeszmO4Bn7XlYHgrF1pTDzw"}
 
-    r = requests.get("https://maps.googleapis.com/maps/api/geocode/json", params = payload)
+    r = requests.get(
+        "https://maps.googleapis.com/maps/api/geocode/json", params=payload)
     return (r.json()["results"][0]["geometry"]["location"])
 
-def reverseCoords(lat,long):
 
-    payload = {"latlng" : (str(lat) + "," + str(long)), "key" : "AIzaSyBaPrjle3PHIeszmO4Bn7XlYHgrF1pTDzw"}
+def reverseCoords(lat, long):
 
-    r = requests.get("https://maps.googleapis.com/maps/api/geocode/json", params = payload)
+    payload = {"latlng": (str(lat) + "," + str(long)),
+               "key": "AIzaSyBaPrjle3PHIeszmO4Bn7XlYHgrF1pTDzw"}
+
+    r = requests.get(
+        "https://maps.googleapis.com/maps/api/geocode/json", params=payload)
 
     print(r.json()["results"][0]["formatted_address"])
 
 
-
-reverseCoords("40.714224","-73.961452")
+if __name__ == "__main__":
+    reverseCoords("40.714224", "-73.961452")
