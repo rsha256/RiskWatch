@@ -44,7 +44,7 @@ export class MapContainer extends Component {
                         position={{lat: latitude, lng: longitude}} 
                         icon={{
                             url: iconUrl,
-                            scaledSize: new google.maps.Size(40, 40)
+                            scaledSize: new google.maps.Size(35, 35)
                         }}
                         key={risk.id}
                     />);
