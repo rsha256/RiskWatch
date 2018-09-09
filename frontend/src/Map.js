@@ -3,81 +3,90 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 
 const google = window.google;
 export class MapContainer extends Component {
-    constructor(props) {
-        super(props);
-        var xhttp = new XMLHttpRequest();
-        // xhttp.open("GET", "http://184.73.76.65:5000/api/getrisks", false);
-        xhttp.open("GET", "http://localhost:5000/api/getrisks", false);
-        xhttp.send();
-        this.risks = JSON.parse(xhttp.responseText);
-        console.log(this.risks);
-        this.state = {
-            markerData: {},
-            activeMarker: null,
-            showingInfoWindow: false
-        };
-    }
+  constructor(props) {
+    super(props);
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "http://184.73.76.65:5000/api/getrisks", false);
+    xhttp.send();
+    this.risks = JSON.parse(xhttp.responseText);
+    console.log(this.risks);
+    this.state = {
+      markerData: {},
+      activeMarker: null,
+      showingInfoWindow: false
+    };
+  }
 
-    onMarkerClick = (props, marker, e) => {
-        this.setState({
-            markerData: props,
-            showingInfoWindow: true,
-            activeMarker: marker
-        });
-        console.log(this.state.markerData.imageUrl);
-    }
+  onMarkerClick = (props, marker, e) => {
+    this.setState({
+      markerData: props,
+      showingInfoWindow: true,
+      activeMarker: marker
+    });
+    console.log(this.state.markerData.imageUrl);
+  };
 
-    render() {
-        return (
-            <Map 
-                google={this.props.google} 
-                zoom={14}
-                initialCenter={{
-                    lat: 39.9578174,
-                    lng: -75.195382
-                }}
-                >
-                {this.risks.map((risk) => {
-                    var iconUrl = null;
-                    switch (risk.riskType) {
-                        case 'fire':
-                        iconUrl = "icons/fireicon";
-                        break;
+  render() {
+    return (
+      <Map
+        google={this.props.google}
+        zoom={14}
+        initialCenter={{
+          lat: 39.9578174,
+          lng: -75.195382
+        }}
+      >
+        {this.risks.map(risk => {
+          var iconUrl = null;
+          switch (risk.riskType) {
+            case "fire":
+              iconUrl = "icons/fireicon";
+              break;
 
-                        case "water":
-                        iconUrl = "watericon";
-                        break;
+            case "water":
+              iconUrl = "watericon";
+              break;
 
-                        case "electrical":
-                        iconUrl = "electricalicon";
-                        break;
+            case "electrical":
+              iconUrl = "electricalicon";
+              break;
 
-                        case "osha":
-                        iconUrl = "oshaicon";
-                        break;
-                    }
+            case "osha":
+              iconUrl = "oshaicon";
+              break;
+          }
 
-                    const riskLocation = risk.location.split(',');
-                    const latitude = riskLocation[0];
-                    const longitude = riskLocation[1];
-                    return (<Marker 
-                        onClick={this.onMarkerClick} 
-                        name={"Current location"} 
-                        position={{lat: latitude, lng: longitude}} 
-                        icon={{
-                            url: iconUrl,
-                            scaledSize: new google.maps.Size(35, 35)
-                        }}
-                        key={risk.id}
-                        imageUrl={'/images/' + risk.imageFileName}
-                    />);
-                })}
-                <InfoWindow onClose={this.onInfoWindowClose} marker={this.state.activeMarker} visible={this.state.showingInfoWindow}>
-                    <img src={this.state.markerData.imageUrl} height="50px" width="50px" />
-                </InfoWindow>
-            </Map>
-        );
-    }
+          const riskLocation = risk.location.split(",");
+          const latitude = riskLocation[0];
+          const longitude = riskLocation[1];
+          return (
+            <Marker
+              onClick={this.onMarkerClick}
+              name={"Current location"}
+              position={{ lat: latitude, lng: longitude }}
+              icon={{
+                url: iconUrl,
+                scaledSize: new google.maps.Size(35, 35)
+              }}
+              key={risk.id}
+              imageUrl={"/images/" + risk.imageFileName}
+            />
+          );
+        })}
+        <InfoWindow
+          onClose={this.onInfoWindowClose}
+          marker={this.state.activeMarker}
+          visible={this.state.showingInfoWindow}
+        >
+          <img
+            src={this.state.markerData.imageUrl}
+            height="50px"
+            width="50px"
+          />
+        </InfoWindow>
+      </Map>
+    );
+  }
 }
 
 export default GoogleApiWrapper({
