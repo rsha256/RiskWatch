@@ -80,6 +80,11 @@ class App extends Component {
           lng: position.coords.longitude
         };
 
+        this.setState({
+          longitude: geolocation.lng,
+          latitude: geolocation.lat
+        });
+
         var circle = new google.maps.Circle({
           center: geolocation,
           radius: position.coords.accuracy
@@ -87,11 +92,6 @@ class App extends Component {
         autocomplete.setBounds(circle.getBounds());
       });
     }
-
-    this.setState({
-      longitude: geolocation.lng,
-      latitude: geolocation.lat
-    });
   }
 
   toggle() {
