@@ -78,12 +78,11 @@ export class MapContainer extends Component {
           onClose={this.onInfoWindowClose}
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
-        >
-          <img
-            src={this.state.markerData.imageUrl}
-            height="50px"
-            width="50px"
-          />
+        >   
+            <h1>{this.state.markerData.placeName}</h1>
+            <img
+                src={this.state.markerData.imageUrl}
+            />
         </InfoWindow>
       </Map>
     );
