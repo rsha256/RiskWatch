@@ -70,6 +70,16 @@ class Chatbot extends React.Component {
         >
           I am an Overlay target
         </Button>
+
+        <Overlay
+          show={this.state.show}
+          onHide={() => this.setState({show: false})}
+          placement="bottom"
+          container={this}
+          target={() => ReactDOM.findDOMNode(this.target)}
+        >
+          <CustomPopover />
+        </Overlay>
       </div>
     );
   }
