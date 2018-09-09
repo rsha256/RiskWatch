@@ -26,13 +26,13 @@ export class MapContainer extends Component {
     });
     console.log(this.state.markerData.imageUrl);
   };
-
+{/*}
   getPlaceAddress(lat, lng) {
     var xhttp = new XMLHttpRequest();
     xhttp.open("GET", "/api/reversecoords", false);
     xhttp.send({ lat: lat, lng: lng });
     return xhttp.responseText();
-  }
+  }*/
 
   render() {
     return (
