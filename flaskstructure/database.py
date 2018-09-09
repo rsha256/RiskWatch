@@ -45,7 +45,7 @@ def addRisk(imageFileName, location, riskType):
 
     dateUploaded = datetime.datetime.now().date()
 
-    tags = object_recognition.getLabels(imageFileName)
+    tags = object_recognition.getLabels('/var/www/html/images/' + imageFileName)
 
     post = {
         "imageFileName": str(imageFileName),
