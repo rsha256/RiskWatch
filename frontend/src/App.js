@@ -87,6 +87,11 @@ class App extends Component {
         autocomplete.setBounds(circle.getBounds());
       });
     }
+
+    this.setState({
+      longitude = geolocation.lng,
+      latitude = geolocation.lat
+    })
   }
 
   toggle() {
@@ -150,12 +155,12 @@ class App extends Component {
               <Button color="primary" onClick={this.locate}>
                 &nbsp;&nbsp;Find me
               </Button>
-              console.log(this.state.longitude + "," + this.state.latitude);
+              {console.log(this.state.longitude + "," + this.state.latitude)}
               {/*}  
               <FormGroup check>
                 <Label check>
                   Location:
-                  <Input type="text" name="location" id="autocomplete" onChange="">
+                  <Input type="text" name="location" id="" onChange="">
                 </Label>
               
               </FormGroup>*/}
