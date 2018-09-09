@@ -3,23 +3,35 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 
 const google = window.google;
 export class MapContainer extends Component {
-  constructor(props) {
-    super(props);
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "http://184.73.76.65:5000/api/getrisks", false);
-    xhttp.send();
-    this.risks = JSON.parse(xhttp.responseText);
-    console.log(this.risks)
-  }
+    constructor(props) {
+        super(props);
+        var xhttp = new XMLHttpRequest();
+        // xhttp.open("GET", "http://184.73.76.65:5000/api/getrisks", false);
+        xhttp.open("GET", "http://localhost:5000/api/getrisks", false);
+        xhttp.send();
+        this.risks = JSON.parse(xhttp.responseText);
+        console.log(this.risks);
+        this.state = {
+            markerData: {},
+            activeMarker: null,
+            showingInfoWindow: false
+        };
+    }
+
+    onMarkerClick = (props, marker, e) => {
+        this.setState({
+            markerData: props,
+            showingInfoWindow: true,
+            activeMarker: marker
+        });
+        console.log(this.state.markerData.imageUrl);
+    }
 
     render() {
         return (
             <Map 
                 google={this.props.google} 
                 zoom={14}
-                style={{
-                    backgroundColor: "black"
-                }}
                 >
                 {this.risks.map((risk) => {
                     var iconUrl = null;
@@ -53,12 +65,11 @@ export class MapContainer extends Component {
                             scaledSize: new google.maps.Size(35, 35)
                         }}
                         key={risk.id}
+                        imageUrl={'/var/www/html/images/' + risk.imageFileName}
                     />);
                 })}
-                <InfoWindow onClose={this.onInfoWindowClose}>
-                <div>
-                    <h1>Hello World</h1>
-                </div>
+                <InfoWindow onClose={this.onInfoWindowClose} marker={this.state.activeMarker} visible={this.state.showingInfoWindow}>
+                    <img src={this.state.markerData.imageUrl} height="50px" width="50px" />
                 </InfoWindow>
             </Map>
         );
