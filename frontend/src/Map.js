@@ -29,9 +29,16 @@ export class MapContainer extends Component {
 
   getPlaceAddress(lat, lng) {
     var xhttp = new XMLHttpRequest();
+<<<<<<< HEAD
     xhttp.open('GET', '/api/reversecoords', false);
     xhttp.send({'lat': lat, 'lng': lng});
     return xhttp.responseText();
+=======
+    xhttp.open('GET', 'http://184.73.76.65:5000/api/reversecoords', false);
+    xhttp.send({'lat': lat, 'lng': lng});
+    console.log(xhttp.responseText);
+    return xhttp.responseText;
+>>>>>>> c237ee6760de517a8c37e2417542904bb85a5a84
   }
 
   render() {
