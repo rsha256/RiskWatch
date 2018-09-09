@@ -6,7 +6,7 @@ export class MapContainer extends Component {
   constructor() {
     super();
     var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "http://184.73.76.65:5000/api/getrisks", false);
+    xhttp.open("GET", "http://localhost:5000/api/getrisks", false);
     xhttp.send();
     this.risks = JSON.parse(xhttp.responseText);
   }
@@ -15,6 +15,25 @@ export class MapContainer extends Component {
         return (
             <Map google={this.props.google} zoom={14}>
                 {this.risks.map((risk) => {
+                    var iconUrl = null;
+                    switch (risk.riskType) {
+                        case 'fire':
+                        iconUrl = "fireicon";
+                        break;
+
+                        case 'water':
+                        iconUrl = "watericon";
+                        break;
+
+                        case 'electrical':
+                        iconUrl = "electricalicon";
+                        break;
+
+                        case 'osha':
+                        iconUrl = "oshaicon";
+                        break;
+                    }
+
                     const riskLocation = risk.location.split(',');
                     const latitude = riskLocation[0];
                     const longitude = riskLocation[1];
