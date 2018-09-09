@@ -6,7 +6,7 @@ export class MapContainer extends Component {
   constructor(props) {
     super(props);
     var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "http://184.73.76.65:5000/api/getrisks", false);
+    xhttp.open("GET", "https://rskwatch.com:5000/api/getrisks", false);
 
     xhttp.send();
     this.risks = JSON.parse(xhttp.responseText);
@@ -26,14 +26,6 @@ export class MapContainer extends Component {
     });
     console.log(this.state.markerData.imageUrl);
   };
-
-  getPlaceAddress(lat, lng) {
-    var xhttp = new XMLHttpRequest();
-    xhttp.open('GET', 'http://184.73.76.65:5000/api/reversecoords', false);
-    xhttp.send({'lat': lat, 'lng': lng});
-    console.log(xhttp.responseText);
-    return xhttp.responseText;
-  }
 
   render() {
     return (
@@ -79,7 +71,7 @@ export class MapContainer extends Component {
               }}
               key={risk.id}
               imageUrl={"/images/" + risk.imageFileName}
-              placeAddress={this.getPlaceAddress(latitude, longitude)}
+              // placeAddress={this.getPlaceAddress(latitude, longitude)}
             />
           );
         })}
@@ -87,11 +79,9 @@ export class MapContainer extends Component {
           onClose={this.onInfoWindowClose}
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
-        >   
-            <h1>{this.state.markerData.placeAddress}</h1>
-            <img
-                src={this.state.markerData.imageUrl}
-            />
+        >
+          <h1>{this.state.markerData.placeAddress}</h1>
+          <img src={this.state.markerData.imageUrl} />
         </InfoWindow>
       </Map>
     );
