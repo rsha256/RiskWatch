@@ -30,18 +30,6 @@ const styles = theme => ({
   },
 });
 
-function unhide(clickedButton, divID) {
-var item = document.getElementById(divID);
-if (item) {
-    if(item.className=='hidden'){
-        item.className = 'unhidden' ;
-        clickedButton.value = 'hide'
-    }else{
-        item.className = 'hidden';
-        clickedButton.value = 'unhide'
-    }
-}}
-
 function FloatingActionButtons(props) {
   const {classes} = props;
   return (
@@ -60,20 +48,11 @@ FloatingActionButtons.propTypes = {
 class Chatbot extends React.Component {
   constructor(props) {
     super(props);
-    
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "http://chubbhackathon.azurewebsites.net/api/questions?classes=3&products=NJ", true);
-
-    xhttp.send();
-    this.data = JSON.parse(xhttp.responseText);
-    
     this.state = {
       modal: false
     };
 
     this.toggle = this.toggle.bind(this);
-
-  }
   }
 
   toggle() {
@@ -102,20 +81,15 @@ class Chatbot extends React.Component {
                   <p>Hello. How are you today?</p>
                   <span className="time-right">1:32</span>
                 </div>
-                <div id="data1" className="container hidden">
-                  <img width={"80px"} height={"80px"} src="https://avatars2.githubusercontent.com/u/28417128?s=460&v=4"
-                       alt="Rahul" />
-                  <p>{this.data}</p>
-                  <span className="time-right">1:32</span>
-                </div>
+
                 <div className="chat-popup" id="myForm">
-                  <form action="" method="post" className="form-container">
+                  <form action="http://chubbhackathon.azurewebsites.net/api/questions?classes=3&products=NJ" method="post" className="form-container">
                     <h1>Chat</h1>
 
                     <label htmlFor="msg"><b>Message</b></label>
                     <textarea placeholder="Type message.." name="msg" required />
 
-                    <button type="submit" className="btn" onclick="unhide(this, 'data1') " value="unhide">Send</button>
+                    <button type="submit" className="btn">Send</button>
                     <button type="button" className="btn cancel" onClick="closeForm()">Close</button>
                   </form>
                 </div>
