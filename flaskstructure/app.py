@@ -37,7 +37,7 @@ def addRisk():
         datetime.datetime.now().hour) + '-' + str(datetime.datetime.now().minute) + '-' + str(datetime.datetime.now().second) + '-' + str(datetime.datetime.now().microsecond)
     image.save('/var/www/html/images/' + filename)
     database.addRisk(filename, location, hazardtype)
-    return redirect("http://184.73.76.65")
+    return redirect("https://184.73.76.65")
 
 
 @app.route('/api/reversecoords', methods=['GET'])
@@ -47,6 +47,7 @@ def getReverseCoords():
     lat = data['lat']
     lng = data['lng']
     return geocacher.reverseCoords(lat, lng)
+
 
 @app.route('/api/flagimage', methods=['POST'])
 def flagImage():

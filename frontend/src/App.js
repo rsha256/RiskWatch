@@ -56,7 +56,7 @@ function toast() {
 }
 
 function initialize() {
-  var input = document.getElementById('searchTextField');
+  var input = document.getElementById("searchTextField");
   new google.maps.places.Autocomplete(input);
 }
 
@@ -96,7 +96,7 @@ class App extends Component {
         autocomplete.setBounds(circle.getBounds());
       });
     }
-  }
+  };
 
   toggle() {
     this.setState({
@@ -133,7 +133,7 @@ class App extends Component {
           <ModalHeader toggle={this.toggle}>Report Something!</ModalHeader>
           <ModalBody>
             <form
-              action="http://184.73.76.65:5000/api/addrisk"
+              action="https://184.73.76.65:5000/api/addrisk"
               method="post"
               encType="multipart/form-data"
               id="upload-form"
@@ -163,7 +163,11 @@ class App extends Component {
               <FormGroup check>
                 <Label check>
                   Location:
-                  <Input type="text" name="location" id="autocomplete searchTextField" />
+                  <Input
+                    type="text"
+                    name="location"
+                    id="autocomplete searchTextField"
+                  />
                   google.maps.event.addDomListener(window, 'load', initialize);
                 </Label>
               </FormGroup>
@@ -224,13 +228,21 @@ class App extends Component {
                 </FormGroup>
                 <FormGroup>
                   <Label>
-                    <Input type="text" name="latitude" value={this.state.latitude} />{" "}
+                    <Input
+                      type="text"
+                      name="latitude"
+                      value={this.state.latitude}
+                    />{" "}
                     <span className="">Latitude</span> -
                   </Label>
                 </FormGroup>
                 <FormGroup>
                   <Label>
-                    <Input type="text" name="longitude" value={this.state.longitude} />{" "}
+                    <Input
+                      type="text"
+                      name="longitude"
+                      value={this.state.longitude}
+                    />{" "}
                     <span className="">Longitude</span> -
                   </Label>
                 </FormGroup>
