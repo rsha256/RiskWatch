@@ -1,19 +1,16 @@
 {
   "name": "riskwatch",
   "version": "0.1.0",
-  "description": "An anonymous and streamlined way to improve safety around the community.",
-  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "react-scripts": "1.1.5"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dwang/RiskWatch.git"
-  },
-  "author": "Daniel Wang, Tim Miles, Varun Ramani, Rahul Shah",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/dwang/RiskWatch/issues"
-  },
-  "homepage": "https://github.com/dwang/RiskWatch#readme"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
 }
