@@ -10,12 +10,12 @@
   height: 2.5em;
 }
 
-.App-footer {
-  font-size: large;
-}
-
 .nav-color {
   background-color: #ff9333;
+}
+
+.orange-text {
+  color: #ff9800 !important;
 }
 
 .button-color {

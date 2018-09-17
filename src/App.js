@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import logo from "./logo.gif";
+import "bootstrap";
+import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 import {
   Button,
@@ -73,7 +74,7 @@ class App extends Component {
           <Navbar color="faded" light>
             <NavbarBrand href="#" className="mr-auto">
               <img src={logo} className="App-logo" alt="logo" />
-              &nbsp; Ginder
+              &nbsp; RiskWatch
             </NavbarBrand>
             <button
               className="btn badge-pill badge-primary"

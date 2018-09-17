@@ -22,8 +22,6 @@ class MapContainer extends Component {
         onClick={this.onMarkerClick}
       />
     ));
-
-    console.log(this.markers);
   }
 
   render() {
