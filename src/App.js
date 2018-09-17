@@ -73,7 +73,7 @@ class App extends Component {
           <Navbar color="faded" light>
             <NavbarBrand href="#" className="mr-auto">
               <img src={logo} className="App-logo" alt="logo" />
-              &nbsp; RiskWatch
+              &nbsp; Ginder
             </NavbarBrand>
             <button
               className="btn badge-pill badge-primary"

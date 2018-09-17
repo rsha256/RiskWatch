@@ -14,7 +14,6 @@
     "mongoose": "^5.2.14",
     "pigeon-maps": "^0.10.4",
     "pigeon-marker": "^0.3.4",
-    "pigeon-overlay": "^0.2.2",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-scripts": "1.1.5",
