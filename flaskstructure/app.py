@@ -30,14 +30,23 @@ def getImages():
 def addRisk():
     image = request.files['image']
     hazardtype = request.form.get("hazardtype")
-    filename = str(datetime.datetime.now().year) + '-' + str(datetime.datetime.now().month) + '-' + str(datetime.datetime.now().day) + '-' + str(
-        datetime.datetime.now().hour) + '-' + str(datetime.datetime.now().minute) + '-' + str(datetime.datetime.now().second) + '-' + str(datetime.datetime.now().microsecond)
+    filename = []
+    current_dt = datetime.datetime.now()
+    filename.append(current_dt.year)
+    filename.append(current_dt.month)
+    filename.append(current_dt.day)
+    filename.append(current_dt.hour)
+    filename.append(current_dt.minute)
+    filename.append(current_dt.second)
+    filename.append(current_dt.microsecond)
+    filename = map(str, filename)
+    filename = '-'.join(filename)
     image.save('/var/www/html/images/' + filename)
 
-    # 39.9578174,-75.195382
-
-    location = str(random.random() / 10 + 39.9578174) + "," + \
-        str(random.random() / 10 + -75.195382)
+    DEFAULT_LOCATION_X = 39.9578174
+    DEFAULT_LOCATION_Y = -75.195382
+    location = str(random.random() / 10 + DEFAULT_LOCATION_X) + "," + \
+        str(random.random() / 10 + DEFAULT_LOCATION_Y)
 
     database.addRisk(filename, location, hazardtype)
     return redirect("http://rskwatch.com")
@@ -54,7 +63,7 @@ def getReverseCoords():
 
 @app.route('/api/flagimage', methods=['POST'])
 def flagImage():
-    return  # implement this endpoint to use database flagger
+    return  # This endpoint overrides the database flagger, for demo purposes
 
 
 if __name__ == "__main__":
